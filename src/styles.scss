@@ -18,7 +18,7 @@ body {
     height: 100%;
     min-height: 993px;
 
-    background-color: var(--darkerBG);
+    background-color: var(--mainBG);
 }
 
 button,
@@ -97,6 +97,7 @@ h3 {
 
 :root {
     // Background
+    --mainBG: #e8e8e8;
     --darkerBG: #0e0e0e;
     --lighterBG: #1e1e1e;
     --darkGrayBG: #212121;
