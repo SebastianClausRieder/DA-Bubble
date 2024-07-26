@@ -1,1 +1,154 @@
-/* You can add global styles to this file, and also import other style files */
+@import './mixin.scss';
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    @include display();
+
+    color: var(--white);
+
+    margin: 0;
+    overflow: hidden;
+}
+
+.side-wrapper {
+    width: 100%;
+    max-width: 1920px;
+    height: 100%;
+    min-height: 993px;
+
+    background-color: var(--darkerBG);
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+$components: app-about-me, app-my-skills, app-portfolio, app-contact;
+
+@each $component in $components {
+    #{$component} {
+        width: 95%;
+        height: 95%;
+        @include display();
+    }
+}
+
+$projects: app-projects, app-current-project, app-plugins;
+
+@each $project in $projects {
+    #{$project} {
+        width: 100%;
+        height: 100%;
+        @include display();
+    }
+}
+
+// Slide in Effect
+
+.show {
+    -webkit-animation-name: slideInDown;
+    animation-name: slideInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideInDown {
+    0% {
+        -webkit-transform: translateY(30%);
+        transform: translateY(30%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    0% {
+        -webkit-transform: translateY(30%);
+        transform: translateY(30%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    font-size: 42px;
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+}
+
+h3 {
+    font-size: 32px;
+}
+
+// Root Colers
+
+:root {
+    // Background
+    --darkerBG: #0e0e0e;
+    --lighterBG: #1e1e1e;
+    --darkGrayBG: #212121;
+    --grayBG: #252525;
+    --transparent: #00000000;
+    --black50: #0000008b;
+    --gray50: #2525258b;
+
+
+    // Fonts
+    --white: #FFFFFF;
+    --whiteGray: #686868;
+    --violet: #4b47ff;
+    --violet2: #9747ff;
+    --turquoise: #00bee8;
+    --turquoise2: #059fc6;
+    --turquoise3: #05a0c7b3;
+    --blue: #0569c6;
+    --gold: #878917;
+    --gold50: #85871780;
+    --green: #70e61c;
+    --red: #e61c40;
+}
+
+// Scrollbar
+
+/* Scrollbalcken */
+/* width */
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: var(--darkGrayBG);
+    border-radius: 10px;
+
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: 0px 0.2px 2px 2px var(--gold);
+}
+
+// My Fonts
