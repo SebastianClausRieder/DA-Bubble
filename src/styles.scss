@@ -19,6 +19,8 @@ body {
     min-height: 993px;
 
     background-color: var(--mainBG);
+    background-image: url(./assets/img/background/colorful-bubbles.png);
+    object-fit: contain;
 }
 
 button,
@@ -26,7 +28,7 @@ a {
     cursor: pointer;
 }
 
-$components: app-about-me, app-my-skills, app-portfolio, app-contact;
+$components: a;
 
 @each $component in $components {
     #{$component} {
@@ -36,7 +38,7 @@ $components: app-about-me, app-my-skills, app-portfolio, app-contact;
     }
 }
 
-$projects: app-projects, app-current-project, app-plugins;
+$projects: a;
 
 @each $project in $projects {
     #{$project} {
@@ -120,6 +122,9 @@ h3 {
     --gold50: #85871780;
     --green: #70e61c;
     --red: #e61c40;
+
+    // Stacks
+    --borderRadius: 25px;
 }
 
 // Scrollbar
