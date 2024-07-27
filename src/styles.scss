@@ -50,8 +50,8 @@ $components: app-sign-in;
 
 @each $component in $components {
     #{$component} {
-        width: 95%;
-        height: 95%;
+        width: 100%;
+        height: 100%;
         @include display();
     }
 }

@@ -12,10 +12,10 @@
         height: 620px;
         max-height: 98%;
 
+        @include display();
+
         background-color: var(--white);
         border-radius: var(--borderRadius);
-
-        @include display();
 
         .switch-contain,
         app-toggle-contain {
