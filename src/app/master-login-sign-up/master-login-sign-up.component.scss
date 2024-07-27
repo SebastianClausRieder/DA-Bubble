@@ -7,10 +7,22 @@
     @include display();
 
     .sign-area {
-        width: 1100px;
-        height: 700px;
+        width: 1020px;
+        max-width: 95%;
+        height: 620px;
+        max-height: 98%;
 
         background-color: var(--white);
         border-radius: var(--borderRadius);
+
+        @include display();
+
+        app-login-create-account,
+        app-toggle-contain {
+            width: 50%;
+            height: 100%;
+
+            @include display();
+        }
     }
 }

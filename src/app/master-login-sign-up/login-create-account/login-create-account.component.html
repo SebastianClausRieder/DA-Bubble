@@ -1,0 +1,20 @@
+<div class="main-contain">
+    <form action="">
+        <h1>{{ globalJSData.isGerman ? 'Anmeldung' : 'Sign up' }}</h1>
+        <div class="input-contain">
+            <input type="mail">
+        </div>
+        <div class="input-contain">
+            <input type="password">
+        </div>
+        <span>
+            @if (globalJSData.isGerman) {
+            Passwort vergessen?
+            } @else {
+            Forgot Password?
+            }
+        </span>
+        <h2>{{ globalJSData.isGerman ? 'oder' : 'or' }}</h2>
+        <button></button>
+    </form>
+</div>
