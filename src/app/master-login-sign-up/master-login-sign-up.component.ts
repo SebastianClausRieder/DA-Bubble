@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ToggleContainComponent } from './toggle-contain/toggle-contain.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { GlobalJSService } from '../global-js.service';
 
 @Component({
   selector: 'app-master-login-sign-up',
@@ -17,5 +18,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   styleUrl: './master-login-sign-up.component.scss'
 })
 export class MasterLoginSignUpComponent {
+
+  globalJSData = inject(GlobalJSService);
 
 }

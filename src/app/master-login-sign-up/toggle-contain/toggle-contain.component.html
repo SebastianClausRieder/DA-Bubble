@@ -1,22 +1,33 @@
 <div class="main-contain">
+
+    @if (globalJSData.signUp) {
+
     <h1>{{ globalJSData.isGerman ? 'Willkommen!' : 'Welcome!' }}</h1>
-    <!-- <div class="distance">
-        <p>
-            @if (globalJSData.isGerman) {
-            Logge dich mit deiner E-Mail-Adresse ein und starte den Chat!
-            } @else {
-            Log in with your email address and start the chat!
-            }
-        </p>
-    </div> -->
     <div class="distance">
         <p>
             @if (globalJSData.isGerman) {
             Du bist noch kein Mitglied von DA-Bubble?<br>Dann Klick hier.
             } @else {
-            You are not yet a member of DA-Bubble? Then click here.
+            You are not yet a member of DA-Bubble?<br>Then click here.
             }
         </p>
     </div>
     <button>{{ globalJSData.isGerman ? 'Registrieren' : 'Sign Up' }}</button>
+
+    } @else {
+
+    <h1>{{ globalJSData.isGerman ? 'Willkommen!' : 'Welcome!' }}</h1>
+    <div class="distance">
+        <p>
+            @if (globalJSData.isGerman) {
+            Du bist bereits ein Mitglied von DA-Bubble?<br>Dann Klick hier.
+            } @else {
+            Are you already a member of DA-Bubble?<br>Then click here.
+            }
+        </p>
+    </div>
+    <button>{{ globalJSData.isGerman ? 'Anmelden' : 'Sign In' }}</button>
+
+    }
+
 </div>

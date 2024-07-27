@@ -7,4 +7,6 @@ import { Observable, Subject } from 'rxjs';
 export class GlobalJSService {
 
   isGerman: boolean = true;
+
+  signUp: boolean = true;
 }
