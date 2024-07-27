@@ -3,15 +3,15 @@ import { Component, inject } from '@angular/core';
 import { GlobalJSService } from '../../global-js.service';
 
 @Component({
-  selector: 'app-login-create-account',
+  selector: 'app-sign-in',
   standalone: true,
   imports: [
     CommonModule
   ],
-  templateUrl: './login-create-account.component.html',
-  styleUrl: './login-create-account.component.scss'
+  templateUrl: './sign-in.component.html',
+  styleUrl: './sign-in.component.scss'
 })
-export class LoginCreateAccountComponent {
+export class SignInComponent {
 
   globalJSData = inject(GlobalJSService);
 

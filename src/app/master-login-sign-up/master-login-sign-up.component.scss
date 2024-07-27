@@ -7,7 +7,7 @@
     @include display();
 
     .sign-area {
-        width: 1020px;
+        width: 1120px;
         max-width: 95%;
         height: 620px;
         max-height: 98%;
@@ -17,7 +17,7 @@
 
         @include display();
 
-        app-login-create-account,
+        .switch-contain,
         app-toggle-contain {
             width: 50%;
             height: 100%;

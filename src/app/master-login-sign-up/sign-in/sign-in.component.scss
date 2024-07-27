@@ -1,0 +1,172 @@
+@import './../../../mixin.scss';
+
+.main-contain {
+    width: 100%;
+    height: 100%;
+
+    @include display();
+
+    form {
+        width: 100%;
+        height: 100%;
+
+        @include display($fd: column, $gap: 15px);
+
+        h1 {
+            color: var(--blue);
+        }
+
+        p {
+            width: 450px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .input-contain,
+        .google-contain {
+            width: 400px;
+            min-height: 45px;
+            max-height: 45px;
+
+            @include display();
+            position: relative;
+
+            background-color: var(--lighterBG);
+            border-radius: var(--borderRadius);
+
+            padding: 0 25px;
+
+            .img-contain {
+                width: 45px;
+                height: 100%;
+
+                @include display();
+
+                .input-icon {
+                    width: 25px;
+                }
+            }
+
+            .pw {
+                width: 90px;
+
+                justify-content: space-around;
+            }
+
+            input {
+                width: calc(100% - 45px);
+                height: 25px;
+
+                background-color: transparent;
+                border: 0;
+
+                font-size: var(--fontSize);
+                font-weight: 100;
+                color: var(--black);
+
+                outline: none;
+
+                // cursor: url('./../../../assets/img/cursor/text.png'), auto;
+            }
+
+            .input-pw {
+                width: calc(100% - 90px);
+            }
+
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus,
+            input:-webkit-autofill:active {
+                background-color: transparent !important;
+                color: var(--black) !important;
+                transition: background-color 5000s ease-in-out 0s;
+                -webkit-text-fill-color: var(--black) !important;
+            }
+
+            label {
+                position: absolute;
+                top: 10px;
+                left: 25px;
+
+                background-color: transparent;
+
+                transition: all 0.3s ease;
+                pointer-events: none;
+
+                font-size: var(--fontSize);
+                font-weight: 300;
+                color: var(--black);
+            }
+
+            input:focus+label,
+            input:not(:placeholder-shown)+label {
+                top: -10px;
+                left: 15px;
+                font-size: 19px;
+                color: var(--black);
+            }
+
+            span {
+                font-size: var(--fontSize);
+                color: var(--black);
+            }
+        }
+
+        a {
+            font-size: var(--fontSize);
+            color: var(--turquoise);
+            text-decoration: none;
+        }
+
+        .or-line {
+            width: 95%;
+            height: fit-content;
+
+            @include display($jc: space-around);
+
+            .line {
+                width: 40%;
+                border: 1px solid var(--lighterBG);
+            }
+        }
+
+        .btn-contain {
+            width: 375px;
+            height: 55px;
+
+            @include display($jc: space-between);
+
+            margin-top: 25px;
+
+            button {
+                width: 160px;
+                height: 45px;
+
+                border: 0;
+                border-radius: var(--borderRadius);
+
+                font-size: var(--fontSize);
+            }
+
+            .btn-left {
+                background-color: var(--blueBG);
+                color: var(--white);
+            }
+
+            .btn-right {
+                background-color: transparent;
+                color: var(--black);
+
+                border: 2px solid var(--blueBG);
+            }
+        }
+    }
+}
+
+.distance {
+    width: fit-content;
+    min-height: 45px;
+    max-height: 45px;
+
+    @include display();
+}

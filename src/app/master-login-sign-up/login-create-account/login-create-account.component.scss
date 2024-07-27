@@ -1,8 +1,0 @@
-@import './../../../mixin.scss';
-
-.main-contain {
-    width: 95%;
-    height: 95%;
-
-    @include display($fd: column, $gap: 35px);
-}
