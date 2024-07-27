@@ -1,6 +1,15 @@
 <div class="main-contain">
     <form action="">
         <h1>{{ globalJSData.isGerman ? 'Anmeldung' : 'Sign up' }}</h1>
+        <p>
+            @if (globalJSData.isGerman) {
+            Wir empfehlen dir, deine berufliche E-Mail-Adresse zu verwenden,
+            um sicherzustellen, dass du keine wichtigen Informationen verpasst.
+            } @else {
+            We recommend that you use your work email address
+            to ensure you don't miss any important information.
+            }
+        </p>
         <div class="input-contain">
             <input type="mail">
         </div>
@@ -14,7 +23,24 @@
             Forgot Password?
             }
         </span>
-        <h2>{{ globalJSData.isGerman ? 'oder' : 'or' }}</h2>
-        <button></button>
+        <article>
+            <div class="line-L"></div>
+            <h4>{{ globalJSData.isGerman ? 'oder' : 'or' }}</h4>
+            <div class="line-R"></div>
+        </article>
+        <label>
+            <img src="" alt="">
+            <span>
+                @if (globalJSData.isGerman) {
+                Anmeldung mit Google
+                } @else {
+                Sign in with Google
+                }
+            </span>
+        </label>
+        <div class="btn-contain">
+            <button>{{ globalJSData.isGerman ? 'Anmelden' : 'Sign in' }}</button>
+            <button>{{ globalJSData.isGerman ? 'Gäste-Login' : 'Guest Login' }}</button>
+        </div>
     </form>
 </div>
