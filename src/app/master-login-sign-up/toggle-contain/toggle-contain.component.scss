@@ -7,8 +7,7 @@
     @include display($fd: column, $gap: 35px);
 
     background-color: var(--blueBG);
-    border-top-left-radius: 200px;
-    border-bottom-left-radius: 100px;
+    border-radius: 200px 25px 25px 100px;
 
     h1 {
         color: var(--white);

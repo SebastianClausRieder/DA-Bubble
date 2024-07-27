@@ -8,5 +8,5 @@ export class GlobalJSService {
 
   isGerman: boolean = true;
 
-  signUp: boolean = true;
+  signUp: boolean = false;
 }

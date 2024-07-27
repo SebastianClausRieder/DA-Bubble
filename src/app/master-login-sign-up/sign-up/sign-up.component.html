@@ -1,1 +1,59 @@
-<p>sign-up works!</p>
+<div class="main-contain">
+    <form action="">
+        <h1>{{ globalJSData.isGerman ? 'Registrierung' : 'Sign up' }}</h1>
+        <div class="distance">
+            <p>
+                @if (globalJSData.isGerman) {
+                Wir empfehlen, deine berufliche E-Mail-Adresse zu nutzen, damit du keine wichtigen Informationen
+                verpasst.
+                } @else {
+                We recommend using your work email address so you don't miss any important information.
+                }
+            </p>
+        </div>
+        <div class="input-contain">
+            <input type="mail" placeholder=" " required>
+            <label class="font-anta" for="name">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
+                }}</label>
+            <div class="img-contain">
+                <img class="input-icon" src="assets/img/icons/message.png" alt="">
+            </div>
+        </div>
+        <div class="input-contain">
+            <input class="input-pw" type="password" placeholder=" " required>
+            <label class="font-anta" for="name">{{ globalJSData.isGerman ? 'Passwort' : 'Password'
+                }}</label>
+            <div class="img-contain pw">
+                <img class="input-icon eye" src="assets/img/icons/eye.png" alt="">
+                <img class="input-icon" src="assets/img/icons/lock.png" alt="">
+            </div>
+        </div>
+        <div class="input-contain">
+            <input class="input-pw" type="password" placeholder=" " required>
+            <label class="font-anta" for="name">{{ globalJSData.isGerman ? 'Passwort bestätigen' : 'Confirm Password'
+                }}</label>
+            <div class="img-contain pw">
+                <img class="input-icon eye" src="assets/img/icons/eye.png" alt="">
+                <img class="input-icon" src="assets/img/icons/lock.png" alt="">
+            </div>
+        </div>
+        <div class="or-line">
+            <div class="line"></div>
+            <h4>{{ globalJSData.isGerman ? 'oder' : 'or' }}</h4>
+            <div class="line"></div>
+        </div>
+        <div class="google-contain">
+            <img src="" alt="">
+            <span>
+                @if (globalJSData.isGerman) {
+                Anmeldung mit Google
+                } @else {
+                Sign in with Google
+                }
+            </span>
+        </div>
+        <div class="btn-contain">
+            <button class="btn-left">{{ globalJSData.isGerman ? 'Anmelden' : 'Sign In' }}</button>
+        </div>
+    </form>
+</div>
