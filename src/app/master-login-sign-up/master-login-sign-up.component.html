@@ -1,13 +1,9 @@
 <div class="main-contain">
-
-    <div class="sign-area">
-        <div class="switch-contain">
-            @if (globalJSData.signUp) {
-            <app-sign-in></app-sign-in>
-            } @else {
-            <app-sign-up></app-sign-up>
-            }
+    <div class="sign-area" [class.slide-right]="signUp">
+        <div class="switch-contain" [class.slide-right]="signUp">
+            <app-sign-in *ngIf="!signUp"></app-sign-in>
+            <app-sign-up *ngIf="signUp"></app-sign-up>
         </div>
-        <app-toggle-contain></app-toggle-contain>
+        <app-toggle-contain class="toggle-contain" [class.slide-left]="signUp"></app-toggle-contain>
     </div>
 </div>

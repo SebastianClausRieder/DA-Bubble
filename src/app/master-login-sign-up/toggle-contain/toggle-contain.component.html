@@ -1,33 +1,23 @@
-<div class="main-contain">
-
-    @if (globalJSData.signUp) {
-
+<div class="main-contain" [class.switch-border-radius]="signUp">
     <h1>{{ globalJSData.isGerman ? 'Willkommen!' : 'Welcome!' }}</h1>
     <div class="distance">
         <p>
             @if (globalJSData.isGerman) {
+            @if (signUp) {
             Du bist noch kein Mitglied von DA-Bubble?<br>Dann Klick hier.
             } @else {
-            You are not yet a member of DA-Bubble?<br>Then click here.
-            }
-        </p>
-    </div>
-    <button>{{ globalJSData.isGerman ? 'Registrieren' : 'Sign Up' }}</button>
-
-    } @else {
-
-    <h1>{{ globalJSData.isGerman ? 'Willkommen!' : 'Welcome!' }}</h1>
-    <div class="distance">
-        <p>
-            @if (globalJSData.isGerman) {
             Du bist bereits ein Mitglied von DA-Bubble?<br>Dann Klick hier.
+            }
+            } @else {
+            @if (signUp) {
+            You are not yet a member of DA-Bubble?<br>Then click here.
             } @else {
             Are you already a member of DA-Bubble?<br>Then click here.
             }
+            }
         </p>
     </div>
-    <button>{{ globalJSData.isGerman ? 'Anmelden' : 'Sign In' }}</button>
-
-    }
-
+    <button (click)="toggleSignUp()">
+        {{ globalJSData.isGerman ? (signUp ? 'Registrieren' : 'Anmelden') : (signUp ? 'Sign Up' : 'Sign In') }}
+    </button>
 </div>

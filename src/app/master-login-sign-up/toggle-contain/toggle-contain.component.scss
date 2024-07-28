@@ -8,6 +8,7 @@
 
     background-color: var(--blueBG);
     border-radius: 200px 25px 25px 100px;
+    transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
 
     h1 {
         color: var(--white);
@@ -34,12 +35,12 @@
         font-size: var(--fontSize);
         color: var(--white);
     }
-}
 
-.distance {
-    width: fit-content;
-    min-height: 45px;
-    max-height: 45px;
+    &.slide-left {
+        transform: translateX(-100%);
+    }
 
-    @include display();
+    &.switch-border-radius {
+        border-radius: 25px 200px 100px 25px;
+    }
 }

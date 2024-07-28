@@ -16,6 +16,9 @@
 
         background-color: var(--white);
         border-radius: var(--borderRadius);
+        overflow: hidden; // Damit der swipe Effekt gut aussieht
+
+        position: relative;
 
         .switch-contain,
         app-toggle-contain {
@@ -23,6 +26,26 @@
             height: 100%;
 
             @include display();
+
+            position: absolute;
+            top: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .switch-contain {
+            left: 0;
+
+            &.slide-right {
+                transform: translateX(100%);
+            }
+        }
+
+        app-toggle-contain {
+            right: 0;
+
+            &.slide-left {
+                transform: translateX(-100%);
+            }
         }
     }
 }

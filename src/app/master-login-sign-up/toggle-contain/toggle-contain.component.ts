@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GlobalJSService } from '../../global-js.service';
 
 @Component({
@@ -11,8 +11,17 @@ import { GlobalJSService } from '../../global-js.service';
   templateUrl: './toggle-contain.component.html',
   styleUrl: './toggle-contain.component.scss'
 })
-export class ToggleContainComponent {
+export class ToggleContainComponent implements OnInit {
+  signUp: boolean = false;
 
   globalJSData = inject(GlobalJSService);
+
+  ngOnInit() {
+    this.globalJSData.signUp$.subscribe(value => this.signUp = value);
+  }
+
+  toggleSignUp() {
+    this.globalJSData.toggleSignUp();
+  }
 
 }
