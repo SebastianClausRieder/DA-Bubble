@@ -171,6 +171,14 @@
             }
         }
     }
+
+    &.switch-opacity-on {
+        animation: opacityOn 1.5s;
+    }
+
+    &.switch-opacity-off {
+        animation: opacityOff 1.5s;
+    }
 }
 
 .distance {

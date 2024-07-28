@@ -1,4 +1,4 @@
-<div class="main-contain">
+<div class="main-contain" [ngClass]="{ 'switch-opacity-on': !signUp, 'switch-opacity-off': signUp }">
     <form action="">
         <h1>{{ globalJSData.isGerman ? 'Anmeldung' : 'Sign In' }}</h1>
         <div class="distance">

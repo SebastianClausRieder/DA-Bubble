@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GlobalJSService } from '../../global-js.service';
 
 @Component({
@@ -11,8 +11,12 @@ import { GlobalJSService } from '../../global-js.service';
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss'
 })
-export class SignInComponent {
+export class SignInComponent implements OnInit {
+  signUp: boolean = false;
 
   globalJSData = inject(GlobalJSService);
 
+  ngOnInit() {
+    this.globalJSData.signUp$.subscribe(value => this.signUp = value);
+  }
 }
