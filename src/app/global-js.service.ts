@@ -8,7 +8,7 @@ export class GlobalJSService {
   private signUpSubject = new BehaviorSubject<boolean>(false);
   signUp$ = this.signUpSubject.asObservable();
 
-  isGerman: boolean = false;
+  isGerman: boolean = true;
 
   toggleSignUp() {
     this.signUpSubject.next(!this.signUpSubject.value);
