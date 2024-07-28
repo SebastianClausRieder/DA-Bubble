@@ -161,6 +161,18 @@
             .btn-left {
                 background-color: var(--blueBG);
                 color: var(--white);
+
+                border-color: var(--blueBG);
+                color: #fff;
+                box-shadow: 0 0 40px 40px var(--blueBG) inset, 0 0 0 0 var(--blueBG);
+                transition: all 0.3s ease-in-out;
+
+
+                &:hover {
+                    background-color: transparent;
+                    box-shadow: 0 0 10px 0 var(--blueBG) inset, 0 0 10px 4px var(--blueBG);
+                    color: var(--blueBG);
+                }
             }
         }
     }

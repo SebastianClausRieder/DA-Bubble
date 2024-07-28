@@ -34,6 +34,13 @@
 
         font-size: var(--fontSize);
         color: var(--white);
+
+        &:hover {
+            box-shadow: 0 0 10px 0 var(--turquoise) inset, 0 0 20px 2px var(--turquoise);
+            border: 3px solid var(--turquoise);
+            color: var(--turquoise);
+            transform: scale(1.05);
+        }
     }
 
     &.slide-left {
