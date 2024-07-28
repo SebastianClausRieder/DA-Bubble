@@ -3,17 +3,17 @@
     <div class="distance">
         <p>
             @if (globalJSData.isGerman) {
-            @if (signUp) {
-            Du bist noch kein Mitglied von DA-Bubble?<br>Dann Klick hier.
+                @if (signUp) {
+                    Du bist noch kein Mitglied von DA-Bubble?<br>Dann Klick hier.
+                } @else {
+                    Du bist bereits ein Mitglied von DA-Bubble?<br>Dann Klick hier.
+                }
             } @else {
-            Du bist bereits ein Mitglied von DA-Bubble?<br>Dann Klick hier.
-            }
-            } @else {
-            @if (signUp) {
-            You are not yet a member of DA-Bubble?<br>Then click here.
-            } @else {
-            Are you already a member of DA-Bubble?<br>Then click here.
-            }
+                @if (signUp) {
+                    You are not yet a member of DA-Bubble?<br>Then click here.
+                } @else {
+                    Are you already a member of DA-Bubble?<br>Then click here.
+                }
             }
         </p>
     </div>

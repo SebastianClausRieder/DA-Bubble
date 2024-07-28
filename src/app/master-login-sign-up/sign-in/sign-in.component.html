@@ -1,28 +1,27 @@
 <div class="main-contain" [ngClass]="{ 'switch-opacity-on': !signUp, 'switch-opacity-off': signUp }">
-    <form action="">
+    <form action="login">
         <h1>{{ globalJSData.isGerman ? 'Anmeldung' : 'Sign In' }}</h1>
         <div class="distance">
             <p>
                 @if (globalJSData.isGerman) {
-                Wir empfehlen, deine berufliche E-Mail-Adresse zu nutzen, damit du keine wichtigen Informationen
-                verpasst.
+                    Wir empfehlen, deine berufliche E-Mail-Adresse zu nutzen, damit du keine wichtigen Informationen
+                    verpasst.
                 } @else {
-                We recommend using your work email address so you don't miss any important information.
+                    We recommend using your work email address so you don't miss any important information.
                 }
             </p>
         </div>
         <div class="input-contain">
-            <input type="mail" placeholder=" " required>
-            <label class="font-anta" for="name">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
+            <input type="mail" placeholder=" " id="email" autocomplete="email" required>
+            <label class="font-anta" for="email">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
                 }}</label>
             <div class="img-contain">
                 <img class="input-icon" src="assets/img/icons/message.png" alt="">
             </div>
         </div>
         <div class="input-contain">
-            <input class="input-pw" type="password" placeholder=" " required>
-            <label class="font-anta" for="name">{{ globalJSData.isGerman ? 'Passwort' : 'Password'
-                }}</label>
+            <input class="input-pw" type="password" placeholder=" " id="password" required>
+            <label class="font-anta" for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password' }}</label>
             <div class="img-contain pw">
                 <img class="input-icon eye" src="assets/img/icons/eye.png" alt="">
                 <img class="input-icon" src="assets/img/icons/lock.png" alt="">
@@ -31,9 +30,9 @@
         <div class="distance">
             <a href="#">
                 @if (globalJSData.isGerman) {
-                Passwort vergessen?
+                    Passwort vergessen?
                 } @else {
-                Forgot Password?
+                    Forgot Password?
                 }
             </a>
         </div>
