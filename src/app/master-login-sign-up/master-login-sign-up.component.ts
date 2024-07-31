@@ -3,7 +3,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ToggleContainComponent } from './toggle-contain/toggle-contain.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { GlobalJSService } from '../global-js.service';
+import { GlobalJSService } from '../services/global-js.service';
 
 @Component({
   selector: 'app-master-login-sign-up',
