@@ -46,15 +46,15 @@ h4 {
     margin: 0;
 }
 
-$components: abr;
+// $components: abr;
 
-@each $component in $components {
-    #{$component} {
-        width: 100%;
-        height: 100%;
-        @include display();
-    }
-}
+// @each $component in $components {
+//     #{$component} {
+//         width: 100%;
+//         height: 100%;
+//         @include display();
+//     }
+// }
 
 // $projects: a;
 
@@ -88,7 +88,20 @@ $components: abr;
     }
 }
 
-// Slide in Effect
+// Fly In Effect for Letters.
+
+@keyframes leFlyInTop {
+    0% {
+        transform: translate(0px, -80px);
+        opacity: 0
+    }
+    50% {
+        transform: translate(10px, 50px);
+        animation-timing-function: ease-in-out
+    }
+}
+
+// Slide In Effect
 
 .show {
     -webkit-animation-name: slideInDown;

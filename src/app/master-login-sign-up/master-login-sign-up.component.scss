@@ -6,6 +6,19 @@
 
     @include display();
 
+    position: relative;
+
+    figure {
+        width: 350px;
+        height: 75px;
+
+        @include display();
+        position: absolute;
+        top: 25px;
+        left: 25px;
+
+    }
+
     .sign-area {
         width: 1120px;
         max-width: 95%;
@@ -55,7 +68,7 @@
             opacity: 1;
             z-index: 2;
         }
-        
+
         .active-in {
             opacity: 0;
             z-index: 1;
@@ -67,7 +80,7 @@
             opacity: 0;
             z-index: 1;
         }
-        
+
         .active-up {
             opacity: 1;
             z-index: 2;
