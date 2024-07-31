@@ -43,3 +43,7 @@ Thumbs.db
 
 # Image Folder
 /src/assets/img/images-to-work-with-Gimp/
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
