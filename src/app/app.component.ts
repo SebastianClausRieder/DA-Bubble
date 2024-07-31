@@ -6,14 +6,10 @@ import { MasterLoginSignUpComponent } from './master-login-sign-up/master-login-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    MasterLoginSignUpComponent
-  ],
+  imports: [CommonModule, RouterOutlet, MasterLoginSignUpComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'DA-Bubble';
+  title = 'da-bubble';
 }
