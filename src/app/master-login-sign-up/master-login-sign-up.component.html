@@ -1,9 +1,7 @@
 <div class="main-contain">
     <div class="sign-area" [class.slide-right]="signUp">
-        <div class="switch-contain" [class.slide-right]="signUp">
-            <app-sign-in *ngIf="!signUp"></app-sign-in>
-            <app-sign-up *ngIf="signUp"></app-sign-up>
-        </div>
+        <app-sign-in class="form-component" [class.active-in]="signUp"></app-sign-in>
+        <app-sign-up class="form-component" [class.active-up]="signUp"></app-sign-up>
         <app-toggle-contain class="toggle-contain" [class.slide-left]="signUp"></app-toggle-contain>
     </div>
 </div>

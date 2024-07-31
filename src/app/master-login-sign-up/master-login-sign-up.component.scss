@@ -32,16 +32,52 @@
             transition: transform 0.5s ease-in-out;
         }
 
-        .switch-contain {
+        // .switch-contain {
+        //     left: 0;
+
+        //     &.slide-right {
+        //         transform: translateX(100%);
+        //     }
+        // }
+
+        .form-component {
+            width: 50%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
             left: 0;
 
-            &.slide-right {
-                transform: translateX(100%);
-            }
+            transition: all 0.6s ease-in-out;
+        }
+
+        app-sign-in {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .active-in {
+            opacity: 0;
+            z-index: 1;
+            transform: translateX(100%);
+            animation: opacityOff 0.6s;
+        }
+
+        app-sign-up {
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        .active-up {
+            opacity: 1;
+            z-index: 2;
+            transform: translateX(100%);
+            animation: opacityOn 0.6s;
         }
 
         app-toggle-contain {
             right: 0;
+            z-index: 3;
 
             &.slide-left {
                 transform: translateX(-100%);
