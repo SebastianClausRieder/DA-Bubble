@@ -1,49 +1,49 @@
-@import './mixin.scss';
+@import "./mixin.scss";
 
 body {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 
-    @include display();
+  @include display();
 
-    color: var(--whiteGray);
+  color: var(--whiteGray);
 
-    margin: 0;
-    overflow: hidden;
+  margin: 0;
+  overflow: hidden;
 }
 
 .side-wrapper {
-    width: 100%;
-    max-width: 1920px;
-    height: 100%;
-    min-height: 993px;
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  min-height: 993px;
 
-    background-color: var(--mainBG);
-    background-image: url(./assets/img/background/multi-bubble-bg.png);
-    object-fit: contain;
+  background-color: var(--mainBG);
+  background-image: url(./assets/img/background/multi-bubble-bg.png);
+  object-fit: contain;
 }
 
 button,
 a {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 h1 {
-    font-size: 52px;
-    margin: 0;
+  font-size: 52px;
+  margin: 0;
 }
 
 h2 {
-    font-size: 42px;
+  font-size: 42px;
 }
 
 h3 {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 h4 {
-    font-size: 22px;
-    margin: 0;
+  font-size: 22px;
+  margin: 0;
 }
 
 // $components: abr;
@@ -69,108 +69,107 @@ h4 {
 // Switch Opacity
 
 @keyframes opacityOn {
-    from {
-        opacity: 0
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes opacityOff {
-    from {
-        opacity: 1
-    }
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0
-    }
+  to {
+    opacity: 0;
+  }
 }
 
 // Fly In Effect for Letters.
 
 @keyframes leFlyInTop {
-    0% {
-        transform: translate(0px, -80px);
-        opacity: 0
-    }
-    50% {
-        transform: translate(10px, 50px);
-        animation-timing-function: ease-in-out
-    }
+  0% {
+    transform: translate(0px, -80px);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(10px, 50px);
+    animation-timing-function: ease-in-out;
+  }
 }
 
 // Slide In Effect
 
 .show {
-    -webkit-animation-name: slideInDown;
-    animation-name: slideInDown;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
 @-webkit-keyframes slideInDown {
-    0% {
-        -webkit-transform: translateY(30%);
-        transform: translateY(30%);
-        visibility: visible;
-    }
+  0% {
+    -webkit-transform: translateY(30%);
+    transform: translateY(30%);
+    visibility: visible;
+  }
 
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideInDown {
-    0% {
-        -webkit-transform: translateY(30%);
-        transform: translateY(30%);
-        visibility: visible;
-    }
+  0% {
+    -webkit-transform: translateY(30%);
+    transform: translateY(30%);
+    visibility: visible;
+  }
 
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }
 
 // Root Colers
 
 :root {
-    // Background
-    --mainBG: #e8e8e8;
-    --darkerBG: #0e0e0e;
-    --lighterBG: #c0c0c0;
-    --darkGrayBG: #212121;
-    --grayBG: #252525;
-    --transparent: #00000000;
-    --black50: #0000008b;
-    --gray50: #2525258b;
-    --blueBG: #0c79de;
+  // Background
+  --mainBG: #e8e8e8;
+  --darkerBG: #0e0e0e;
+  --lighterBG: #c0c0c0;
+  --darkGrayBG: #212121;
+  --grayBG: #252525;
+  --transparent: #00000000;
+  --black50: #0000008b;
+  --gray50: #2525258b;
+  --blueBG: #0c79de;
 
+  // Fonts
+  --white: #ffffff;
+  --black: #000000;
+  --whiteGray: #686868;
+  --violet: #4b47ff;
+  --violet2: #9747ff;
+  --turquoise: #00bee8;
+  --turquoise2: #059fc6;
+  --turquoise3: #05a0c7b3;
+  --blue: #0569c6;
+  --gold: #878917;
+  --gold50: #85871780;
+  --green: #70e61c;
+  --red: #e61c40;
 
-    // Fonts
-    --white: #FFFFFF;
-    --black: #000000;
-    --whiteGray: #686868;
-    --violet: #4b47ff;
-    --violet2: #9747ff;
-    --turquoise: #00bee8;
-    --turquoise2: #059fc6;
-    --turquoise3: #05a0c7b3;
-    --blue: #0569c6;
-    --gold: #878917;
-    --gold50: #85871780;
-    --green: #70e61c;
-    --red: #e61c40;
-
-    // Stacks
-    --borderRadius: 25px;
-    --fontSize: 21px;
+  // Stacks
+  --borderRadius: 25px;
+  --fontSize: 21px;
 }
 
 // Scrollbar
@@ -178,29 +177,40 @@ h4 {
 /* Scrollbalcken */
 /* width */
 ::-webkit-scrollbar {
-    background-color: transparent;
-    width: 0px;
-    height: 5px;
+  background-color: transparent;
+  width: 0px;
+  height: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background-color: var(--darkGrayBG);
-    border-radius: 10px;
+  background-color: var(--darkGrayBG);
+  border-radius: 10px;
 
-    margin-left: 250px;
-    margin-right: 250px;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--gold);
-    border-radius: 10px;
+  background: var(--gold);
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    box-shadow: 0px 0.2px 2px 2px var(--gold);
+  box-shadow: 0px 0.2px 2px 2px var(--gold);
 }
 
 // My Fonts
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
