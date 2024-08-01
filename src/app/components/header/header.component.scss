@@ -1,0 +1,34 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 115px;
+  background-color: #eceefe;
+}
+
+.content {
+  width: 100vw;
+  height: 115px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  height: 70px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.search-section {
+  height: 70px;
+  width: 100%;
+  max-width: 989px;
+  .search-input {
+    height: 70px;
+    width: 100%;
+    max-width: 989px;
+    border: unset;
+    border-radius: 50px;
+  }
+}

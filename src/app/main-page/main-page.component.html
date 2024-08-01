@@ -1,116 +1,36 @@
-<div>this is main
-  <div (click)="saveUser()">Add Hanbit</div>
-  <div class="example-button-container">
-    <section>
-      <div class="example-label">Basic</div>
-      <div class="example-button-row">
-        <button mat-button>Basic</button>
-        <button mat-button disabled>Disabled</button>
-        <a mat-button href="https://www.google.com/" target="_blank">Link</a>
-      </div>
-    </section>
-    <mat-divider></mat-divider>
-    <section>
-      <div class="example-label">Raised</div>
-      <div class="example-button-row">
-        <button mat-raised-button>Basic</button>
-        <button mat-raised-button disabled>Disabled</button>
-        <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-      </div>
-    </section>
-    <mat-divider></mat-divider>
-    <section>
-      <div class="example-label">Stroked</div>
-      <div class="example-button-row">
-        <button mat-stroked-button>Basic</button>
-        <button mat-stroked-button disabled>Disabled</button>
-        <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
-      </div>
-    </section>
-    <mat-divider></mat-divider>
-    <section>
-      <div class="example-label">Flat</div>
-      <div class="example-button-row">
-        <button mat-flat-button>Basic</button>
-        <button mat-flat-button disabled>Disabled</button>
-        <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
-      </div>
-    </section>
-    <mat-divider></mat-divider>
-    <section>
-      <div class="example-label">Icon</div>
-      <div class="example-button-row">
-        <div class="example-flex-container">
-          <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
-            <mat-icon>open_in_new</mat-icon>
-          </button>
-        </div>
-      </div>
-    </section>
-    <mat-divider></mat-divider>
-    <section>
-      <div class="example-label">FAB</div>
-      <div class="example-button-row">
-        <div class="example-flex-container">
-          <div class="example-button-container">
-            <button mat-fab aria-label="Example icon button with a delete icon">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </div>
-          <div class="example-button-container">
-            <button mat-fab disabled aria-label="Example icon button with a heart icon">
-              <mat-icon>favorite</mat-icon>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <mat-divider></mat-divider>
-    <section>
-      <div class="example-label">Mini FAB</div>
-      <div class="example-button-row">
-        <div class="example-flex-container">
-          <div class="example-button-container">
-            <button mat-mini-fab aria-label="Example icon button with a menu icon">
-              <mat-icon>menu</mat-icon>
-            </button>
-          </div>
-          <div class="example-button-container">
-            <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
-              <mat-icon>home</mat-icon>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="example-label">Extended Fab</div>
-      <div class="example-button-row">
-        <div class="example-flex-container">
-          <div class="example-button-container">
-            <button mat-fab extended>
-              <mat-icon>favorite</mat-icon>
-              Basic
-            </button>
-          </div>
-          <div class="example-button-container">
-            <button mat-fab extended disabled>
-              <mat-icon>favorite</mat-icon>
-              Disabled
-            </button>
-          </div>
-          <div class="example-button-container">
-            <a mat-fab extended routerLink=".">
-              <mat-icon>favorite</mat-icon>
-              Link
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+<app-header></app-header>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
+    <div class="logo-container">
+      <h1>This is logo contianer</h1>
+    </div>
+    <ul class="menu-item">
+      <li routerLink="/" routerLinkActive="router-link-active">
+        <mat-icon>fact_check</mat-icon>Dashboard
+      </li>
+      <li routerLink="user" routerLinkActive="router-link-active">
+        <mat-icon>perm_identity</mat-icon>User
+      </li>
+    </ul>
+    @if (showFiller) {
+    <p>Lorem, ipsum dolor sit amet consectetur.</p>
+    }
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
 
+  <div class="sidenav-content">
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon class="menu-icon">menu</mat-icon>
+        </button>
+        <span>My CRM</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="router-container">
+
+    </div>
   </div>
-</div>
+</mat-drawer-container>
