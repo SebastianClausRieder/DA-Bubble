@@ -12,11 +12,18 @@
             </p>
         </div>
         <div class="input-contain">
-            <input type="mail" placeholder=" " id="email" autocomplete="email" required>
+            <input type="name" placeholder=" " id="confirm-name" required>
+            <label class="font-anta" for="confirm-name">Name</label>
+            <div class="img-contain">
+                <img class="input-icon" src="assets/img/icons/user.png" alt="">
+            </div>
+        </div>
+        <div class="input-contain">
+            <input type="email" placeholder=" " id="email" autocomplete="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
             <label class="font-anta" for="email">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
                 }}</label>
             <div class="img-contain">
-                <img class="input-icon" src="assets/img/icons/message.png" alt="">
+                <img class="input-icon" src="assets/img/icons/mail.png" alt="">
             </div>
         </div>
         <div class="input-contain">
@@ -36,23 +43,21 @@
                 <img class="input-icon" src="assets/img/icons/lock.png" alt="">
             </div>
         </div>
-        <div class="or-line">
-            <div class="line"></div>
-            <h4>{{ globalJSData.isGerman ? 'oder' : 'or' }}</h4>
-            <div class="line"></div>
-        </div>
-        <div class="google-contain">
-            <img src="" alt="">
-            <span>
+        <div class="checkbox-contain">
+            <div class="checkbox" id="checkbox-border" (click)="PPaccept = !PPaccept"
+                [ngClass]="{'redBorder': formValid == false, 'greenBorder': PPaccept}">
+                <img [src]="PPaccept ? 'assets/img/icons/check-mark-green.png' : ''" class="check">
+            </div>
+            <span class="font-anta pp-text">
                 @if (globalJSData.isGerman) {
-                    Anmeldung mit Google
+                    Ich stimme den <a class="font-anta pp-link">Datenschutzrichtlinien</a> zu.
                 } @else {
-                    Sign in with Google
+                    I agree to the <a class="font-anta pp-link">privacy policy</a>.
                 }
             </span>
         </div>
         <div class="btn-contain">
-            <button class="btn-left">{{ globalJSData.isGerman ? 'Anmelden' : 'Sign In' }}</button>
+            <button class="btn-left">{{ globalJSData.isGerman ? 'Weiter' : 'Next' }}</button>
         </div>
     </form>
 </div>

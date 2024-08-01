@@ -10,7 +10,7 @@
         width: 100%;
         height: 100%;
 
-        @include display($fd: column, $gap: 15px);
+        @include display($fd: column, $gap: 20px);
 
         h1 {
             color: var(--blue);
@@ -19,7 +19,7 @@
         p {
             width: 450px;
 
-            font-size: 18px;
+            font-size: 17px;
             color: var(--black);
             text-align: center;
 
@@ -35,6 +35,7 @@
             @include display();
             position: relative;
 
+            border: 2px solid transparent;
             background-color: var(--lighterBG);
             border-radius: var(--borderRadius);
 
@@ -69,8 +70,6 @@
                 color: var(--black);
 
                 outline: none;
-
-                // cursor: url('./../../../assets/img/cursor/text.png'), auto;
             }
 
             .input-pw {
@@ -113,13 +112,59 @@
             span {
                 font-size: var(--fontSize);
                 color: var(--black);
+
+                @include display();
+
+                .google-logo {
+                    width: 30px;
+                    margin-right: 10px;
+                }
+            }
+
+            .request-contain {
+                width: calc(70% - 50px);
+                height: 25px;
+
+                @include display($jc: flex-start);
+                position: absolute;
+                bottom: 37px;
+                right: -35px;
+
+                border: 1px solid var(--blue);
+                border-radius: var(--borderRadius);
+                background-color: var(--white);
+
+                padding: 0 25px;
+                z-index: 9;
+
+                .request-area {
+                    font-size: 18px;
+                    color: var(--red);
+                }
             }
         }
 
         a {
             font-size: var(--fontSize);
-            color: var(--turquoise);
+            color: var(--blue);
             text-decoration: none;
+
+            &:hover {
+                color: var(--turquoise);
+                text-decoration: underline;
+            }
+        }
+
+        .google-contain {
+            cursor: pointer;
+
+            &:hover {
+                border: 2px solid var(--blueBG);
+
+                span {
+                    transform: scale(1.05);
+                }
+            }
         }
 
         .or-line {

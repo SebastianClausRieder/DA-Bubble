@@ -14,7 +14,19 @@ import { GlobalJSService } from '../../services/global-js.service';
 export class SignUpComponent implements OnInit {
   signUp: boolean = false;
 
+  formValid: boolean | null = null;
+
+  isValidName: boolean = false;
+  isValidMail: boolean = false;
+  isValidMessage: boolean = false;
+  PPaccept: boolean = false;
+
   globalJSData = inject(GlobalJSService);
+
+  contactData = {
+    mail: "",
+    password: ""
+  }
 
   ngOnInit() {
     this.globalJSData.signUp$.subscribe(value => this.signUp = value);
