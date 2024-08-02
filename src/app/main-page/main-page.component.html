@@ -1,23 +1,18 @@
 <app-header></app-header>
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
-    <div class="logo-container">
-      <h1>This is logo contianer</h1>
-    </div>
-    <ul class="menu-item">
-      <li routerLink="/" routerLinkActive="router-link-active">
-        <mat-icon>fact_check</mat-icon>Dashboard
-      </li>
-      <li routerLink="user" routerLinkActive="router-link-active">
-        <mat-icon>perm_identity</mat-icon>User
-      </li>
-    </ul>
-    @if (showFiller) {
-    <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    }
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
+  <mat-drawer #drawer mode="side" [opened]="true">
+    <section class="sidenav-container">
+      <div class="sidenav">
+        <div class="logo-container">
+          <h1>This is logo contianer</h1>
+        </div>
+        <ul class="menu-item">
+          <app-direct-message></app-direct-message>
+        </ul>
+      </div>
+    </section>
+
+
   </mat-drawer>
 
   <div class="sidenav-content">

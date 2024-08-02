@@ -1,1 +1,33 @@
-<p>direct-message works!</p>
+<button (click)="filtering = !filtering" id="dropdown-btn" class="dropdown-btn">
+  <div id="dropdown-icon" class="dropdown-icon rotate-down">
+  </div>
+  <div class="dropdown-text">
+    Direktnachrichten
+  </div>
+</button>
+@if(filtering) {
+<div id="dropdown-container" class="dropdown-container">
+  <div class="dropdown-content">
+    <table class="user-table">
+      <tbody>
+        <tr>
+          <td>
+            <img src="./assets/img/profile/man1.svg" alt="">
+          </td>
+          <td>
+            Hanbit Chang (DU)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="./assets/img/profile/man2.svg" alt="">
+          </td>
+          <td>
+            Hallo Chang
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+}

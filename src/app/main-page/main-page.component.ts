@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderComponent } from '../components/header/header.component';
+import { DirectMessageComponent } from '../components/direct-message/direct-message.component';
 
 @Component({
   selector: 'app-main-page',
@@ -19,6 +20,7 @@ import { HeaderComponent } from '../components/header/header.component';
     MatSidenavModule,
     MatToolbarModule,
     HeaderComponent,
+    DirectMessageComponent,
   ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',

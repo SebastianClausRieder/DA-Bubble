@@ -1,0 +1,67 @@
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    color: #535af1;
+  }
+}
+
+.dropdown-container {
+  background-color: #ffffff;
+  padding-left: 8px;
+}
+
+.dropdown-content {
+  display: column;
+  justify-content: center;
+}
+
+.dropdown-text {
+  background-image: url("./../../../assets/img/icons/material-symbols/account-circle.svg");
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  background-size: 24px 24px;
+  padding: 10px 10px 10px 40px;
+}
+
+.dropdown-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../../assets/img/icons/material-symbols/arrow-drop-down.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+  rotate: -90deg;
+  transition: 0.125s ease-in-out;
+}
+
+.dropdown-btn:hover .dropdown-icon {
+  background-image: url("../../../assets/img/icons/material-symbols/arrow-drop-down-hover.svg");
+}
+
+.dropdown-btn:hover .dropdown-text {
+  background-image: url("./../../../assets/img/icons/material-symbols/account-circle-hover.svg");
+}
+
+.rotate-down {
+  rotate: 0deg;
+  transition: 0.125s ease-in-out;
+}
+
+table {
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}
