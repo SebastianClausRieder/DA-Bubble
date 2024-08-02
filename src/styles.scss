@@ -4,7 +4,7 @@ body {
   width: 100vw;
   height: 100vh;
 
-  // @include display();
+  @include display();
 
   color: var(--whiteGray);
 
@@ -14,9 +14,7 @@ body {
 
 .side-wrapper {
   width: 100%;
-  max-width: 1920px;
   height: 100%;
-  min-height: 993px;
 
   background-color: var(--mainBG);
   background-image: url(./assets/img/background/multi-bubble-bg.png);
@@ -29,7 +27,7 @@ a {
 }
 
 h1 {
-  font-size: 52px;
+  font-size: 52px !important;
   margin: 0;
 }
 

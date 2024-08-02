@@ -1,7 +1,12 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
 mat-drawer-container {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: calc(100svh - 148px);
 }
 
 mat-drawer {
