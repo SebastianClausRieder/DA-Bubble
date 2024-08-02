@@ -25,6 +25,9 @@ export class SignInComponent implements OnInit {
 
   globalJSData = inject(GlobalJSService);
 
+  passwordFieldType: string = 'password';
+  passwordFieldEye: string = 'assets/img/icons/eye-out.png';
+
   loginData = {
     mail: "",
     password: ""
@@ -37,6 +40,10 @@ export class SignInComponent implements OnInit {
   onSubmit(ngForm: NgForm) {
     console.log(ngForm.form.valid);
     ngForm.resetForm();
+  }
 
+  togglePasswordFieldType() {
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
+    this.passwordFieldEye = this.passwordFieldEye === 'assets/img/icons/eye-out.png' ? 'assets/img/icons/eye.png' : 'assets/img/icons/eye-out.png';
   }
 }

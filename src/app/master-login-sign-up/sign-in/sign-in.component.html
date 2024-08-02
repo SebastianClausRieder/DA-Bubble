@@ -26,11 +26,11 @@
             }
         </div>
         <div class="input-contain">
-            <input #password="ngModel" [(ngModel)]="loginData.password" class="input-pw" type="password"
-                    name="password" placeholder=" " required>
+            <input #password="ngModel" [(ngModel)]="loginData.password" class="input-pw" type="{{ passwordFieldType }}"
+                    name="password" placeholder=" " minlength="4" required>
             <label class="font-anta" for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password' }}</label>
             <div class="img-contain pw">
-                <img class="input-icon eye" src="assets/img/icons/eye.png" alt="" style="cursor: pointer;">
+                <img class="input-icon eye" src="{{ passwordFieldEye }}" alt="" (click)="togglePasswordFieldType()" style="cursor: pointer;">
                 <img class="input-icon" src="assets/img/icons/lock.png" alt="">
             </div>
             @if (!password.valid && password.touched) {
