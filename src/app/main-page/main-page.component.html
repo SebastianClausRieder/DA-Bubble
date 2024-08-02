@@ -1,3 +1,32 @@
-<div>this is main
-  <button (click)="saveUser()">Add Hanbit</button>
-</div>
+<app-header></app-header>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer mode="side" [opened]="true">
+    <section class="sidenav-container">
+      <div class="sidenav">
+        <div class="logo-container">
+          <h1>This is logo contianer</h1>
+        </div>
+        <ul class="menu-item">
+          <app-direct-message></app-direct-message>
+        </ul>
+      </div>
+    </section>
+
+
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon class="menu-icon">menu</mat-icon>
+        </button>
+        <span>My CRM</span>
+        <button (click)="userdataService.saveUser()">Click Me</button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="router-container">
+
+    </div>
+  </div>
+</mat-drawer-container>
