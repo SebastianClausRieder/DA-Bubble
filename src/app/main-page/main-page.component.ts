@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderComponent } from '../components/header/header.component';
 import { DirectMessageComponent } from '../components/direct-message/direct-message.component';
+import { UserdataService } from '../services/userdata.service';
 
 @Component({
   selector: 'app-main-page',
@@ -26,15 +27,9 @@ import { DirectMessageComponent } from '../components/direct-message/direct-mess
   styleUrl: './main-page.component.scss',
 })
 export class MainPageComponent {
-  firestore: Firestore = inject(Firestore);
   showFiller = false;
-  constructor(private router: Router) {}
-
-  async saveUser() {
-    await addDoc(collection(this.firestore, 'users'), { name: 'Hanbit' }).then(
-      (result: any) => {
-        console.log('Added Hanbit', result);
-      }
-    );
-  }
+  constructor(
+    private router: Router,
+    public userdataService: UserdataService
+  ) {}
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-direct-message',
@@ -9,16 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectMessageComponent implements OnInit {
   filtering: boolean = true;
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   ngOnInit(): void {
-    const dropdownIcon = document.getElementById('dropdown-icon');
-    document.addEventListener('click', (event) => {
-      if (dropdownIcon && this.filtering) {
-        dropdownIcon.classList.add('rotate-down');
-      }
-      if (dropdownIcon && !this.filtering) {
-        dropdownIcon.classList.remove('rotate-down');
-      }
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      const dropdownIcon = document.getElementById('dropdown-icon');
+      document.addEventListener('click', (event) => {
+        if (dropdownIcon && this.filtering) {
+          dropdownIcon.classList.add('rotate-down');
+        }
+        if (dropdownIcon && !this.filtering) {
+          dropdownIcon.classList.remove('rotate-down');
+        }
+      });
+    }
   }
 }
