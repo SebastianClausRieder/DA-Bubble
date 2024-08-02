@@ -1,5 +1,5 @@
 <div class="main-contain" [ngClass]="{ 'switch-opacity-on': !signUp, 'switch-opacity-off': signUp }">
-    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" action="login">
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
         <h1>{{ globalJSData.isGerman ? 'Anmeldung' : 'Sign In' }}</h1>
         <div class="distance">
             <p>
@@ -12,8 +12,8 @@
             </p>
         </div>
         <div class="input-contain">
-            <input #mail="ngModel" [(ngModel)]="loginData.mail" type="email" placeholder=" " [ngModelOptions]="{standalone: true}"
-                    autocomplete="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+            <input #mail="ngModel" [(ngModel)]="loginData.mail" type="email" placeholder=" "
+                    name="mail" autocomplete="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
             <label class="font-anta" for="email">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
                 }}</label>
             <div class="img-contain">
@@ -21,13 +21,13 @@
             </div>
             @if (!mail.valid && mail.touched) {
                 <div class="request-contain">
-                    <span class="font-anta request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte E-Mail eingeben' : 'Please enter your mail' }}</span>
+                    <span class="font-anta request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib deine E-Mail ein' : 'Please enter your mail' }}</span>
                 </div>
             }
         </div>
         <div class="input-contain">
             <input #password="ngModel" [(ngModel)]="loginData.password" class="input-pw" type="password"
-                    placeholder=" " required [ngModelOptions]="{standalone: true}">
+                    name="password" placeholder=" " required>
             <label class="font-anta" for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password' }}</label>
             <div class="img-contain pw">
                 <img class="input-icon eye" src="assets/img/icons/eye.png" alt="" style="cursor: pointer;">
@@ -64,7 +64,9 @@
             </span>
         </div>
         <div class="btn-contain">
-            <button class="btn-left" type="submit" value="Submit">{{ globalJSData.isGerman ? 'Anmelden' : 'Sign In' }}</button>
+            <button class="btn-left" type="submit" value="Submit"
+                    [ngClass]="{'unvalid': !loginForm.valid}"
+                    >{{ globalJSData.isGerman ? 'Anmelden' : 'Sign In' }}</button>
             <button class="btn-right">{{ globalJSData.isGerman ? 'Gäste-Login' : 'Guest Login' }}</button>
         </div>
     </form>

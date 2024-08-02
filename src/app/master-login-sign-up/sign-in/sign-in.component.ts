@@ -35,7 +35,8 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(ngForm: NgForm) {
-    console.log(this.loginData);
-    
+    console.log(ngForm.form.valid);
+    ngForm.resetForm();
+
   }
 }
