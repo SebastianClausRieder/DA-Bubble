@@ -27,7 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 
-Erklärung zu `BehaviorSubject` in der global-js.service.ts
+Erklärung zu `BehaviorSubject` (zu deutsch `VerhaltenSubjekt`) in der global-js.service.ts
 
 Die Verwendung von `BehaviorSubject` und der zugehörigen Methoden in diesem Code hat mehrere Vorteile gegenüber einer einfachen Variablen, besonders in einer Angular-Anwendung, die oft viele Komponenten und Services umfasst. Hier ist eine detaillierte Erklärung:
 

@@ -15,7 +15,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
   signUp: boolean = false;
-  ready: boolean = true;
+  ready: boolean = false;
 
   nameResult: boolean | null = null;
   passwordConfirm: boolean | null = null;
