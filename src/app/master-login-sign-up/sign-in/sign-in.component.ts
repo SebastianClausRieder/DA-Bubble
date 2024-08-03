@@ -18,11 +18,6 @@ export class SignInComponent implements OnInit {
 
   formValid: boolean | null = null;
 
-  isValidName: boolean = false;
-  isValidMail: boolean = false;
-  isValidMessage: boolean = false;
-  PPaccept: boolean = false;
-
   globalJSData = inject(GlobalJSService);
 
   passwordFieldType: string = 'password';

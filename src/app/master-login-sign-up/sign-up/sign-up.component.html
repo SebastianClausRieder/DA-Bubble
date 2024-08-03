@@ -1,6 +1,8 @@
 <div class="main-contain" [ngClass]="{ 'switch-opacity-on': signUp, 'switch-opacity-off': !signUp }">
-    <form action="register">
+    <form (ngSubmit)="onSubmit(registOneForm)" #registOneForm="ngForm" [class.switch-display-off]="ready">
+        
         <h1>{{ globalJSData.isGerman ? 'Registrierung' : 'Sign Up' }}</h1>
+
         <div class="distance">
             <p>
                 @if (globalJSData.isGerman) {
@@ -11,53 +13,134 @@
                 }
             </p>
         </div>
+
         <div class="input-contain">
-            <input type="name" placeholder=" " id="confirm-name" required>
-            <label class="font-anta" for="confirm-name">Name</label>
+            <input #name="ngModel" [(ngModel)]="registOneData.name" type="name" placeholder=" " id="name"
+                    name="name" minlength="6" autocomplete="name" required (ngModelChange)="validateFullName(name.value)">
+            <label for="name">Name</label>
             <div class="img-contain">
                 <img class="input-icon" src="assets/img/icons/user.png" alt="">
             </div>
+            @if (nameResult === false) {
+                <div class="request-contain">
+                    <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte Vor und Nachname eingeben!' : 'Please enter your first and last name!' }}</span>
+                </div>
+            } @else if (!name.valid && name.touched) {
+                <div class="request-contain">
+                    <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib deinen Namen ein' : 'Please enter your name' }}</span>
+                </div>
+            }
         </div>
+
         <div class="input-contain">
-            <input type="email" placeholder=" " id="email" autocomplete="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
-            <label class="font-anta" for="email">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
+            <input #mail="ngModel" [(ngModel)]="registOneData.mail" type="email" placeholder=" " id="email"
+                    name="mail" autocomplete="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+            <label for="email">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
                 }}</label>
             <div class="img-contain">
                 <img class="input-icon" src="assets/img/icons/mail.png" alt="">
             </div>
+            @if (!mail.valid && mail.touched) {
+                <div class="request-contain">
+                    <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib deine E-Mail ein' : 'Please enter your mail' }}</span>
+                </div>
+            }
         </div>
+
         <div class="input-contain">
-            <input class="input-pw" type="password" placeholder=" " id="password" required>
-            <label class="font-anta" for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password'
+            <input #password="ngModel" [(ngModel)]="registOneData.password" class="input-pw" id="password"
+                    type="{{ passwordFieldTypeOne }}" name="password" placeholder=" " minlength="4" required>
+            <label for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password'
                 }}</label>
             <div class="img-contain pw">
-                <img class="input-icon eye" src="assets/img/icons/eye.png" alt="">
+                <img class="input-icon eye" src="{{ passwordFieldEyeOne }}" alt="" (click)="togglePasswordFieldOne()" style="cursor: pointer;">
                 <img class="input-icon" src="assets/img/icons/lock.png" alt="">
             </div>
+            @if (!password.valid && password.touched) {
+                <div class="request-contain">
+                    <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib ein Passwort ein' : 'Please enter a password' }}</span>
+                </div>
+            }
         </div>
+
         <div class="input-contain">
-            <input class="input-pw" type="password" placeholder=" " id="confirm-password" required>
-            <label class="font-anta" for="confirm-password">{{ globalJSData.isGerman ? 'Passwort bestätigen' : 'Confirm Password' }}</label>
+            <input #confirmPassword="ngModel" [(ngModel)]="registOneData.confirmPassword" class="input-pw" id="confirm-password"
+                    type="{{ passwordFieldTypeTwo }}" name="confirmPassword" placeholder=" " minlength="4" required>
+            <label for="confirm-password">{{ globalJSData.isGerman ? 'Passwort bestätigen' : 'Confirm Password' }}</label>
             <div class="img-contain pw">
-                <img class="input-icon eye" src="assets/img/icons/eye.png" alt="">
+                <img class="input-icon eye" src="{{ passwordFieldEyeTwo }}" alt="" (click)="togglePasswordFieldTwo()" style="cursor: pointer;">
                 <img class="input-icon" src="assets/img/icons/lock.png" alt="">
             </div>
+            @if (passwordConfirm === false) {
+                <div class="request-contain">
+                    <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Passwörter stimmen nicht überein' : 'Passwords do not match' }}</span>
+                </div>
+            }
         </div>
+
         <div class="checkbox-contain">
             <div class="checkbox" id="checkbox-border" (click)="PPaccept = !PPaccept"
-                [ngClass]="{'redBorder': formValid == false, 'greenBorder': PPaccept}">
+                [ngClass]="{'redBorder': PPaccept === false, 'greenBorder': PPaccept}">
                 <img [src]="PPaccept ? 'assets/img/icons/check-mark-green.png' : ''" class="check">
             </div>
-            <span class="font-anta pp-text">
+            <span class="pp-text">
                 @if (globalJSData.isGerman) {
-                    Ich stimme den <a class="font-anta pp-link">Datenschutzrichtlinien</a> zu.
+                    Ich stimme den <a class="pp-link">Datenschutzrichtlinien</a> zu.
                 } @else {
-                    I agree to the <a class="font-anta pp-link">privacy policy</a>.
+                    I agree to the <a class="pp-link">privacy policy</a>.
                 }
             </span>
         </div>
+
         <div class="btn-contain">
-            <button class="btn-left">{{ globalJSData.isGerman ? 'Weiter' : 'Next' }}</button>
+            <button class="btn-left" type="submit" value="Submit"
+            [ngClass]="{'unvalid': !registOneForm.valid || !PPaccept}"
+            >{{ globalJSData.isGerman ? 'Weiter' : 'Next' }}</button>
         </div>
+
     </form>
+    <section [class.switch-display-on]="ready">
+        
+        <h1>{{ globalJSData.isGerman ? 'Benutzerbild' : 'Avatar' }}</h1>
+        
+        <div class="distance">
+            <p>
+                @if (globalJSData.isGerman) {
+                    Du kannst dein eigenes Profilbild hochladen oder für etwas Inspiration in unserer Auswahl stöbern!
+                } @else {
+                    You can upload your own profile picture or browse through our selection for some inspiration!
+                }
+            </p>
+        </div>
+
+        <figure>
+            <div class="my-avatar-contain">
+                <img class="my-avatar" src="{{ myAvatar }}" alt="">
+            </div>
+            <h3>{{ registOneData.name }}</h3>
+        </figure>
+
+        <h4>Wähle aus unserer Liste oder...</h4>
+
+        <div class="avatar-contain">
+            <div class="avatar-list"><img src="assets/img/avatars/Elias-Neumann.png" (click)="selectAvatar('assets/img/avatars/Elias-Neumann.png')" alt="" class="avatar"></div>
+            <div class="avatar-list"><img src="assets/img/avatars/Elise-Roth.png" (click)="selectAvatar('assets/img/avatars/Elise-Roth.png')" class="avatar"></div>
+            <div class="avatar-list"><img src="assets/img/avatars/Frederik-Beck.png" (click)="selectAvatar('assets/img/avatars/Frederik-Beck.png')" alt="" class="avatar"></div>
+            <div class="avatar-list"><img src="assets/img/avatars/Noah-Braun.png" (click)="selectAvatar('assets/img/avatars/Noah-Braun.png')" alt="" class="avatar"></div>
+            <div class="avatar-list"><img src="assets/img/avatars/Sofia-Müller.png" (click)="selectAvatar('assets/img/avatars/Sofia-Müller.png')" alt="" class="avatar"></div>
+            <div class="avatar-list"><img src="assets/img/avatars/Steffen-Hoffmann.png" (click)="selectAvatar('assets/img/avatars/Steffen-Hoffmann.png')" alt="" class="avatar"></div>
+        </div>
+
+        <div class="distance">
+            <h4>lade dein eigenes Bild hoch!</h4>
+            <button class="btn-right">{{ globalJSData.isGerman ? 'Bild hochladen' : 'Upload image' }}</button>
+        </div>
+
+        <div class="btn-contain" style="margin: 0;">
+            <button class="btn-left" type="submit" value="Submit"
+            [ngClass]="{'unvalid': !avatarSelected}"
+            >{{ globalJSData.isGerman ? 'Registrieren' : 'Sign Up' }}</button>
+        </div>
+
+    </section>
 </div>

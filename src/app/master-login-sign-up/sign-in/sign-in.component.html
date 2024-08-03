@@ -14,28 +14,28 @@
         <div class="input-contain">
             <input #mail="ngModel" [(ngModel)]="loginData.mail" type="email" placeholder=" "
                     name="mail" autocomplete="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
-            <label class="font-anta" for="email">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
+            <label for="email">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
                 }}</label>
             <div class="img-contain">
                 <img class="input-icon" src="assets/img/icons/mail.png" alt="">
             </div>
             @if (!mail.valid && mail.touched) {
                 <div class="request-contain">
-                    <span class="font-anta request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib deine E-Mail ein' : 'Please enter your mail' }}</span>
+                    <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib deine E-Mail ein' : 'Please enter your mail' }}</span>
                 </div>
             }
         </div>
         <div class="input-contain">
             <input #password="ngModel" [(ngModel)]="loginData.password" class="input-pw" type="{{ passwordFieldType }}"
                     name="password" placeholder=" " minlength="4" required>
-            <label class="font-anta" for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password' }}</label>
+            <label for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password' }}</label>
             <div class="img-contain pw">
                 <img class="input-icon eye" src="{{ passwordFieldEye }}" alt="" (click)="togglePasswordFieldType()" style="cursor: pointer;">
                 <img class="input-icon" src="assets/img/icons/lock.png" alt="">
             </div>
             @if (!password.valid && password.touched) {
                 <div class="request-contain">
-                    <span class="font-anta request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib dein Passwort ein' : 'Please enter your password' }}</span>
+                    <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib dein Passwort ein' : 'Please enter your password' }}</span>
                 </div>
             }
         </div>

@@ -6,11 +6,17 @@
 
     @include display();
 
-    form {
+    form,
+    section {
         width: 100%;
         height: 100%;
 
-        @include display($fd: column, $gap: 20px);
+        @include display($fd: column, $gap: 25px);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        transition: all 0.7s ease-in-out;
 
         h1 {
             color: var(--blue);
@@ -109,6 +115,26 @@
                 font-size: 19px;
                 color: var(--black);
             }
+
+            .request-contain {
+                width: calc(100% - 50px);
+                height: 25px;
+
+                @include display($jc: flex-start);
+                position: absolute;
+                top: 47px;
+                left: 0px;
+
+                background-color: transparent;
+
+                padding: 0 25px;
+                z-index: 9;
+
+                .request-area {
+                    font-size: 18px;
+                    color: var(--red);
+                }
+            }
         }
 
         .checkbox-contain {
@@ -117,6 +143,8 @@
 
             @include display($gap: 5px);
 
+            margin-top: 15px;
+
             span {
                 font-size: var(--fontSize);
                 color: var(--black);
@@ -124,11 +152,12 @@
 
             a {
                 font-size: var(--fontSize);
-                color: var(--turquoise);
+                color: var(--blue);
                 text-decoration: none;
 
                 &:hover {
-                    color: var(--turquoise2);
+                    color: var(--turquoise);
+                    text-decoration: underline;
                 }
             }
 
@@ -193,7 +222,7 @@
                 color: var(--white);
 
                 border-color: var(--blueBG);
-                color: #fff;
+                color: var(--white);
                 box-shadow: 0 0 40px 40px var(--blueBG) inset, 0 0 0 0 var(--blueBG);
                 transition: all 0.3s ease-in-out;
 
@@ -202,6 +231,19 @@
                     background-color: transparent;
                     box-shadow: 0 0 10px 0 var(--blueBG) inset, 0 0 10px 4px var(--blueBG);
                     color: var(--blueBG);
+                }
+            }
+
+            .unvalid {
+                background-color: var(--gray50);
+                box-shadow: none;
+
+                cursor: not-allowed;
+
+                &:hover {
+                    background-color: var(--gray50); // Beibehalten der grauen Hintergrundfarbe
+                    box-shadow: none; // Kein Schatten
+                    color: var(--white); // Textfarbe bleibt weiß
                 }
             }
         }
@@ -213,6 +255,142 @@
 
     &.switch-opacity-off {
         animation: opacityOff 1.5s;
+    }
+
+    form {
+        transform: translateX(0);
+        opacity: 1;
+
+        &.switch-display-off {
+            transform: translateX(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    section {
+        @include display($fd: column, $gap: 20px);
+
+        transform: translateX(100%);
+        opacity: 0;
+
+        &.switch-display-on {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        figure {
+            width: 90%;
+            height: fit-content;
+
+            @include display($fd: column);
+
+            margin: 0;
+
+            .my-avatar-contain {
+                width: 175px;
+                height: 175px;
+
+                @include display();
+
+                border-radius: 50%;
+
+                overflow: hidden;
+
+                .my-avatar {
+                    width: 100%;
+                }
+            }
+
+            h3 {
+                text-align: center;
+                margin-bottom: 0;
+            }
+        }
+
+        h4 {
+            text-align: start;
+            margin: 0;
+        }
+
+        .avatar-contain {
+            width: fit-content;
+            height: fit-content;
+        
+            @include display($gap: 13px);
+
+            .avatar-list {
+                width: fit-content;
+                height: fit-content;
+
+                @include display();
+
+                border-radius: 50%;
+
+                overflow: hidden;
+                cursor: pointer;
+
+                .avatar {
+                    width: 60px;
+                }
+            }
+        }
+
+        .btn-right {
+            width: 160px;
+            height: 45px;
+
+            border-radius: var(--borderRadius);
+
+            color: var(--blueBG);
+            font-size: var(--fontSize);
+
+            position: relative;
+
+            background-color: transparent;
+            border: 2px solid var(--blueBG);
+
+            margin-left: 20px;
+
+            overflow: hidden;
+            transition: 0.2s transform ease-in-out;
+            will-change: transform;
+            z-index: 0;
+
+            &::after {
+                width: 100%;
+                height: 100%;
+
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                background-color: var(--blueBG);
+                border-radius: var(--borderRadius);
+
+                content: '';
+
+                transform: translate(-100%, 0) rotate(10deg);
+                transform-origin: top left;
+                transition: 0.3s transform ease-out;
+                will-change: transform;
+                z-index: -1;
+            }
+
+            &:hover::after {
+                transform: translate(0, 0);
+            }
+
+            &:hover {
+                border: 2px solid transparent;
+
+                color: var(--white);
+
+                transform: scale(1.05);
+                will-change: transform;
+            }
+        }
     }
 }
 

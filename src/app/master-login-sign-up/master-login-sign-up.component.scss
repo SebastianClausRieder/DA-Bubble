@@ -26,12 +26,11 @@
         max-height: 98%;
 
         @include display();
+        position: relative;
 
         background-color: var(--white);
         border-radius: var(--borderRadius);
-        overflow: hidden; // Damit der swipe Effekt gut aussieht
-
-        position: relative;
+        overflow: hidden;
 
         .switch-contain,
         app-toggle-contain {
