@@ -100,9 +100,11 @@
 
     </form>
     <section [class.switch-display-on]="ready">
-        
+
+        <app-back-arrow (click)="oneStepBack()"></app-back-arrow>
+
         <h1>{{ globalJSData.isGerman ? 'Benutzerbild' : 'Avatar' }}</h1>
-        
+
         <div class="distance">
             <p>
                 @if (globalJSData.isGerman) {
@@ -137,7 +139,7 @@
         </div>
 
         <div class="btn-contain" style="margin: 0;">
-            <button class="btn-left" type="submit" value="Submit"
+            <button class="btn-left" (click)="registerWithDABubble(registOneForm)"
             [ngClass]="{'unvalid': !avatarSelected}"
             >{{ globalJSData.isGerman ? 'Registrieren' : 'Sign Up' }}</button>
         </div>

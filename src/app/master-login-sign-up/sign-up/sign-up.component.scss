@@ -391,6 +391,12 @@
                 will-change: transform;
             }
         }
+
+        app-back-arrow {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+        }
     }
 }
 

@@ -2,14 +2,16 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { GlobalJSService } from '../../services/global-js.service';
 import { FormsModule, NgForm } from '@angular/forms';
+import { BackArrowComponent } from "../../useful-apps/back-arrow/back-arrow.component";
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
-  ],
+    FormsModule,
+    BackArrowComponent
+],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss'
 })
@@ -33,7 +35,7 @@ export class SignUpComponent implements OnInit {
   myAvatar: string = 'assets/img/avatars/Default-Avatar.png';
 
   registOneData = {
-    name: "bb rr",
+    name: "",
     mail: "",
     password: "",
     confirmPassword: ""
@@ -47,10 +49,6 @@ export class SignUpComponent implements OnInit {
     if (ngForm.form.valid && this.PPaccept) {
       if (this.registOneData.password === this.registOneData.confirmPassword) {
         this.ready = true;
-
-        // this.passwordConfirm = null;
-        // this.PPaccept = null;
-        // ngForm.resetForm();
       } else {
         this.passwordConfirm = false;
       }
@@ -77,5 +75,18 @@ export class SignUpComponent implements OnInit {
   selectAvatar(img: string) {
     this.myAvatar = img;
     this.avatarSelected = true;
+  }
+
+  registerWithDABubble(ngForm: NgForm) {
+    this.ready = false;
+    this.globalJSData.toggleSignUp();
+
+    this.passwordConfirm = null;
+    this.PPaccept = null;
+    ngForm.resetForm();
+  }
+
+  oneStepBack() {
+    this.ready = false;
   }
 }
