@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalJSService {
-  private signUpSubject = new BehaviorSubject<boolean>(false);
+  private signUpSubject = new BehaviorSubject<boolean>(false); // false wenn Login fertig ist
   signUp$ = this.signUpSubject.asObservable();
 
   isGerman: boolean = true;

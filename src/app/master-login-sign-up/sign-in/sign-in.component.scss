@@ -10,7 +10,7 @@
         width: 100%;
         height: 100%;
 
-        @include display($fd: column, $gap: 15px);
+        @include display($fd: column, $gap: 25px);
 
         h1 {
             color: var(--blue);
@@ -19,7 +19,7 @@
         p {
             width: 450px;
 
-            font-size: 18px;
+            font-size: 17px;
             color: var(--black);
             text-align: center;
 
@@ -35,6 +35,7 @@
             @include display();
             position: relative;
 
+            border: 2px solid transparent;
             background-color: var(--lighterBG);
             border-radius: var(--borderRadius);
 
@@ -69,8 +70,6 @@
                 color: var(--black);
 
                 outline: none;
-
-                // cursor: url('./../../../assets/img/cursor/text.png'), auto;
             }
 
             .input-pw {
@@ -113,13 +112,57 @@
             span {
                 font-size: var(--fontSize);
                 color: var(--black);
+
+                @include display();
+
+                .google-logo {
+                    width: 30px;
+                    margin-right: 10px;
+                }
+            }
+
+            .request-contain {
+                width: calc(100% - 50px);
+                height: 25px;
+
+                @include display($jc: flex-start);
+                position: absolute;
+                top: 47px;
+                left: 0px;
+
+                background-color: transparent;
+
+                padding: 0 25px;
+                z-index: 9;
+
+                .request-area {
+                    font-size: 18px;
+                    color: var(--red);
+                }
             }
         }
 
         a {
             font-size: var(--fontSize);
-            color: var(--turquoise);
+            color: var(--blue);
             text-decoration: none;
+
+            &:hover {
+                color: var(--turquoise);
+                text-decoration: underline;
+            }
+        }
+
+        .google-contain {
+            cursor: pointer;
+
+            &:hover {
+                border: 2px solid var(--blueBG);
+
+                span {
+                    transform: scale(1.05);
+                }
+            }
         }
 
         .or-line {
@@ -163,7 +206,7 @@
                 color: var(--white);
 
                 border-color: var(--blueBG);
-                color: #fff;
+                color: var(--white);
                 box-shadow: 0 0 40px 40px var(--blueBG) inset, 0 0 0 0 var(--blueBG);
                 transition: all 0.3s ease-in-out;
 
@@ -172,6 +215,19 @@
                     background-color: transparent;
                     box-shadow: 0 0 10px 0 var(--blueBG) inset, 0 0 10px 4px var(--blueBG);
                     color: var(--blueBG);
+                }
+            }
+
+            .unvalid {
+                background-color: var(--gray50);
+                box-shadow: none;
+
+                cursor: not-allowed;
+
+                &:hover {
+                    background-color: var(--gray50);  // Beibehalten der grauen Hintergrundfarbe
+                    box-shadow: none;  // Kein Schatten
+                    color: var(--white);  // Textfarbe bleibt weiß
                 }
             }
 
