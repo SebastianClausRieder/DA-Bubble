@@ -83,6 +83,7 @@ export class SignUpComponent implements OnInit {
 
     this.passwordConfirm = null;
     this.PPaccept = null;
+    this.passwordStrength = '';
     ngForm.resetForm();
   }
 
@@ -90,7 +91,7 @@ export class SignUpComponent implements OnInit {
     this.ready = false;
   }
 
-
+  // Strong Password Check
 
   passwordStrength: string = '';
   showPassword: boolean = false;

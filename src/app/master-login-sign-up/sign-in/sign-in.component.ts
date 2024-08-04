@@ -33,12 +33,15 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(ngForm: NgForm) {
-    console.log(ngForm.form.valid);
     ngForm.resetForm();
   }
 
   togglePasswordFieldType() {
     this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
     this.passwordFieldEye = this.passwordFieldEye === 'assets/img/icons/eye-out.png' ? 'assets/img/icons/eye.png' : 'assets/img/icons/eye-out.png';
+  }
+
+  toggleForgotPassword() {
+    this.globalJSData.forgotPW = this.globalJSData.forgotPW === false ? true : false;
   }
 }
