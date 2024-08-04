@@ -5,6 +5,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { GlobalJSService } from '../services/global-js.service';
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
+import { StartLogoComponent } from "../useful-apps/start-logo/start-logo.component";
 
 @Component({
   selector: 'app-master-login-sign-up',
@@ -14,7 +15,8 @@ import { ForgotPasswordComponent } from "./forgot-password/forgot-password.compo
     SignInComponent,
     SignUpComponent,
     ToggleContainComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    StartLogoComponent
 ],
   templateUrl: './master-login-sign-up.component.html',
   styleUrl: './master-login-sign-up.component.scss'

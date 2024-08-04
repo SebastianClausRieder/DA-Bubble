@@ -1,0 +1,140 @@
+@import './../../../mixin.scss';
+
+main {
+    width: 100%;
+    height: 100%;
+
+    @include display();
+    position: relative;
+
+    background-image: linear-gradient(to bottom, #797ef4, #696ef1, #595eee, #474dea, #323be6);
+
+    figure {
+        width: 865px;
+        height: 275px;
+
+        @include display();
+        position: absolute;
+        top: 36.2%;
+        left: 23%;
+
+        margin: 0;
+
+        img {
+            width: 23%;
+
+            position: absolute;
+            left: 38.5%;
+
+            z-index: 2;
+        }
+
+        article {
+            width: 76%;
+            height: 100%;
+
+            @include display($jc: flex-end);
+            position: absolute;
+            right: 0;
+
+            overflow: hidden;
+
+            h1 {
+                font-size: 125px;
+                font-weight: 600;
+                color: var(--white);
+
+                transform: translateX(-105%);
+                
+                z-index: 1;
+            }
+        }
+    }
+}
+
+// First Animation
+
+.logo-to-left {
+    animation: moveLeft 1s 2s forwards;
+}
+
+@keyframes moveLeft {
+    0% {
+        left: 38.5%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+// Second Animation
+
+.headline-to-right {
+    animation: moveRight 1s 3s forwards,
+                scaleFont 1s 5s forwards;
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(-105%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleFont {
+    0% {
+        font-size: 125px;
+        font-weight: 600;
+        color: var(--white);
+    }
+
+    100% {
+        font-size: 45px;
+        font-weight: 700;
+        color: var(--black);
+    }
+}
+
+// Third Animation
+
+.move-and-scale {
+    animation: moveScale 1s 5s forwards;
+}
+
+@keyframes moveScale {
+    0% {
+        width: 865px;
+        height: 275px;
+
+        top: 40%;
+        left: 25%;
+    }
+
+    100% {
+        width: 324.5px;
+        height: 102px;
+
+        top: 2%;
+        left: 2%;
+    }
+}
+
+// Fourth Animation
+
+.fade-out {
+    animation: fadeOut 1s 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        background-image: linear-gradient(to bottom, #797ef4, #696ef1, #595eee, #474dea, #323be6);
+    }
+
+    100% {
+        background-image: none;
+    }
+}

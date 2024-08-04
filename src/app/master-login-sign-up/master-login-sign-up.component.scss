@@ -1,28 +1,17 @@
 @import './../../mixin.scss';
 
-.main-contain {
-    width: 95%;
-    height: 98%;
+main {
+    width: 100%;
+    height: 100%;
 
     @include display();
 
     position: relative;
 
-    figure {
-        width: 350px;
-        height: 75px;
-
-        @include display();
-        position: absolute;
-        top: 25px;
-        left: 25px;
-
-    }
-
     section {
-        width: 1170px;
+        width: 1260px;
         max-width: 95%;
-        height: 720px;
+        height: 760px;
         max-height: 98%;
 
         @include display();
@@ -124,5 +113,13 @@
                 height: 100%;
             }
         }
+    }
+
+    app-start-logo {
+        position: absolute;
+        inset: 0;
+
+        pointer-events: none;
+        z-index: 9;
     }
 }

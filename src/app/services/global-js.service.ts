@@ -9,7 +9,7 @@ export class GlobalJSService {
   signUp$ = this.signUpSubject.asObservable();
 
   isGerman: boolean = true;
-  forgotPW: boolean = true;
+  forgotPW: boolean = false;
 
   toggleSignUp() {
     this.signUpSubject.next(!this.signUpSubject.value);
