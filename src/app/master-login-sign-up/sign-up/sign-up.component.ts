@@ -11,7 +11,7 @@ import { BackArrowComponent } from "../../useful-apps/back-arrow/back-arrow.comp
     CommonModule,
     FormsModule,
     BackArrowComponent
-],
+  ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss'
 })
@@ -88,5 +88,43 @@ export class SignUpComponent implements OnInit {
 
   oneStepBack() {
     this.ready = false;
+  }
+
+
+
+  passwordStrength: string = '';
+  showPassword: boolean = false;
+
+  checkStrength() {
+    const strength = this.getStrength(this.registOneData.password);
+    if (strength == 0) {
+      this.passwordStrength = '';
+    } else if (strength <= 2) {
+      this.passwordStrength = 'weak';
+    } else if (strength > 2 && strength <= 4) {
+      this.passwordStrength = 'moderate';
+    } else if (strength > 4) {
+      this.passwordStrength = 'strong';
+    }
+  }
+
+  getStrength(password: string): number {
+    let i = 0;
+    if (password.length > 6) {
+      i++;
+    }
+    if (password.length >= 10) {
+      i++;
+    }
+    if (/[A-Z]/.test(password)) {
+      i++;
+    }
+    if (/[0-9]/.test(password)) {
+      i++;
+    }
+    if (/[A-Za-z0-8]/.test(password)) {
+      i++;
+    }
+    return i;
   }
 }

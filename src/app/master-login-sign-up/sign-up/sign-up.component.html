@@ -47,8 +47,8 @@
             }
         </div>
 
-        <div class="input-contain">
-            <input #password="ngModel" [(ngModel)]="registOneData.password" class="input-pw" id="password"
+        <div class="input-contain" [ngClass]="passwordStrength">
+            <input #password="ngModel" [(ngModel)]="registOneData.password" class="input-pw" id="password" (keyup)="checkStrength()"
                     type="{{ passwordFieldTypeOne }}" name="password" placeholder=" " minlength="4" required>
             <label for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password'
                 }}</label>
@@ -61,6 +61,7 @@
                     <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib ein Passwort ein' : 'Please enter a password' }}</span>
                 </div>
             }
+            <div class="strengthMeter"></div>
         </div>
 
         <div class="input-contain">

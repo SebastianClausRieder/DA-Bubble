@@ -6,8 +6,8 @@ import { GlobalJSService } from '../../services/global-js.service';
   selector: 'app-toggle-contain',
   standalone: true,
   imports: [
-    CommonModule
-  ],
+    CommonModule,
+],
   templateUrl: './toggle-contain.component.html',
   styleUrl: './toggle-contain.component.scss'
 })

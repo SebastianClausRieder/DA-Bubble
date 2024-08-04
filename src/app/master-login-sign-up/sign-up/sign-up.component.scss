@@ -40,7 +40,6 @@
             @include display();
             position: relative;
 
-            border: 2px solid transparent;
             background-color: var(--lighterBG);
             border-radius: var(--borderRadius);
 
@@ -316,7 +315,7 @@
         .avatar-contain {
             width: fit-content;
             height: fit-content;
-        
+
             @include display($gap: 13px);
 
             .avatar-list {
@@ -396,6 +395,58 @@
             position: absolute;
             top: 25px;
             left: 25px;
+        }
+    }
+}
+
+.input-contain {
+    .strengthMeter {
+        position: absolute;
+        bottom: 0px;
+        width: 85%;
+        height: 1px;
+        background: transparent;
+
+        margin-left: 50px;
+        margin-right: 50px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 100%;
+            transition: 0.5s;
+            background: var(--scaleRed);
+        }
+    }
+
+    &.weak {
+        .strengthMeter {
+            &::before {
+                width: 10%;
+                background: var(--scaleRed);
+                filter: drop-shadow(0 -1px 1px var(--scaleRed)) drop-shadow(0 0 5px var(--scaleRed)) drop-shadow(0 0 20px var(--scaleRed))
+            }
+        }
+    }
+
+    &.moderate {
+        .strengthMeter {
+            &::before {
+                width: 70%;
+                background: var(--scaleYellow);
+                filter: drop-shadow(0 -1px 1px var(--scaleYellow)) drop-shadow(0 0 5px var(--scaleYellow)) drop-shadow(0 0 20px var(--scaleYellow));
+            }
+        }
+    }
+
+    &.strong {
+        .strengthMeter {
+            &::before {
+                width: 100%;
+                background: var(--scaleGreen);
+                filter: drop-shadow(0 -1px 1px var(--scaleGreen)) drop-shadow(0 0 5px var(--scaleGreen)) drop-shadow(0 0 20px var(--scaleGreen));
+            }
         }
     }
 }

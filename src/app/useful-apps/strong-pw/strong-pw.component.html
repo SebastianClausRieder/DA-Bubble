@@ -1,0 +1,11 @@
+
+<!-- password-strength-checker.component.html -->
+<div class="container" [ngClass]="passwordStrength">
+    <h2>Password Strength Checker</h2>
+    <div class="inputArea">
+        <input type="password" placeholder="Password" id="YourPassword" [(ngModel)]="password" (keyup)="checkStrength()"
+            [type]="showPassword ? 'text' : 'password'">
+        <div class="show" (click)="toggleShowPassword()"></div>
+    </div>
+    <div class="strengthMeter"></div>
+</div>

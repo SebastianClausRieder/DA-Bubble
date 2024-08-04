@@ -13,7 +13,7 @@ import { GlobalJSService } from '../services/global-js.service';
     SignInComponent,
     SignUpComponent,
     ToggleContainComponent
-  ],
+],
   templateUrl: './master-login-sign-up.component.html',
   styleUrl: './master-login-sign-up.component.scss'
 })
