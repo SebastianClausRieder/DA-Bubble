@@ -1,16 +1,22 @@
 <div class="main-contain">
+
     <figure>
         <img src="" alt="">
         <span>test</span>
     </figure>
+
     <section>
+
         <div class="sign-area" [class.switch-area-off]="globalJSData.forgotPW">
             <app-sign-in class="form-component" [class.active-in]="signUp"></app-sign-in>
             <app-sign-up class="form-component" [class.active-up]="signUp"></app-sign-up>
             <app-toggle-contain class="toggle-contain" [class.slide-left]="signUp"></app-toggle-contain>
         </div>
+
         <div class="pw-area" [class.switch-area-on]="globalJSData.forgotPW">
             <app-forgot-password></app-forgot-password>
         </div>
+
     </section>
+
 </div>
