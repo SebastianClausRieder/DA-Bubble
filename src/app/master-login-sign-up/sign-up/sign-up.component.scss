@@ -312,7 +312,7 @@
             width: fit-content;
             height: fit-content;
 
-            @include display($gap: 13px);
+            @include display($gap: 10px);
 
             .avatar-list {
                 width: fit-content;
@@ -320,10 +320,16 @@
 
                 @include display();
 
+                border: solid 3px transparent;
                 border-radius: 50%;
 
                 overflow: hidden;
                 cursor: pointer;
+
+                &:hover {
+                    border: 3px solid var(--lighterBG);
+                    border-radius: 50%;
+                }
 
                 .avatar {
                     width: 60px;
