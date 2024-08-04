@@ -8,6 +8,14 @@ main {
 
     position: relative;
 
+    app-start-logo {
+        position: absolute;
+        inset: 0;
+
+        pointer-events: none;
+        z-index: 9;
+    }
+
     section {
         width: 1260px;
         max-width: 95%;
@@ -115,11 +123,33 @@ main {
         }
     }
 
-    app-start-logo {
-        position: absolute;
-        inset: 0;
+    footer {
+        width: 450px;
+        height: 50px;
 
-        pointer-events: none;
-        z-index: 9;
+        @include display($jc: space-between);
+        position: absolute;
+        bottom: 25px;
+
+        a {
+            width: fit-content;
+            height: fit-content;
+
+            font-size: var(--fontSize);
+            color: var(--blue);
+            text-decoration: none;
+
+            padding: 10px 25px;
+
+            border: 1px solid transparent;
+            border-radius: var(--borderRadius);
+
+            &:hover {
+                color: var(--turquoise);
+                text-decoration: underline;
+
+                border: 1px solid var(--turquoise);
+            }
+        }
     }
 }
