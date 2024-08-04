@@ -7,7 +7,7 @@ body {
     @include display();
 
     font-family: 'Nunito' !important;
-    color: var(--whiteGray);
+    color: var(--black);
 
     margin: 0;
     overflow: hidden;
@@ -81,7 +81,7 @@ h4 {
     --gray50: #2525258b;
     --blueBG: #0c79de;
 
-    //Scales
+    //PW Scales
     --scaleRed: #ff0000;
     --scaleYellow: #eedc3d;
     --scaleGreen: #18e605;
