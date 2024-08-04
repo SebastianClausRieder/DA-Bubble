@@ -81,6 +81,9 @@ export class SignUpComponent implements OnInit {
     this.ready = false;
     this.globalJSData.toggleSignUp();
 
+    this.myAvatar = 'assets/img/avatars/Default-Avatar.png';
+    this.avatarSelected = false;
+
     this.passwordConfirm = null;
     this.PPaccept = null;
     this.passwordStrength = '';
@@ -123,7 +126,7 @@ export class SignUpComponent implements OnInit {
     if (/[0-9]/.test(password)) {
       i++;
     }
-    if (/[A-Za-z0-8]/.test(password)) {
+    if (/[a-z]/.test(password)) {
       i++;
     }
     return i;

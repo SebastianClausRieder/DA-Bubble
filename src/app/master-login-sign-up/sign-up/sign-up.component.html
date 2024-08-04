@@ -95,7 +95,7 @@
 
         <div class="btn-contain">
             <button class="btn-left" type="submit" value="Submit"
-            [ngClass]="{'unvalid': !registOneForm.valid || !PPaccept}"
+            [ngClass]="{'unvalid': !registOneForm.valid || !PPaccept || !nameResult}"
             >{{ globalJSData.isGerman ? 'Weiter' : 'Next' }}</button>
         </div>
 

@@ -26,6 +26,7 @@ export class ForgotPasswordComponent {
   }
 
   onSubmit(ngForm: NgForm) {
-
+    this.backToLogin();
+    ngForm.resetForm();
   }
 }
