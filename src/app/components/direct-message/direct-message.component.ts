@@ -18,7 +18,6 @@ export class DirectMessageComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.toogleDirectMessage();
     await this.userdataService.getAllUsers();
-    console.log(this.userdataService.allUsers);
   }
 
   toogleDirectMessage() {

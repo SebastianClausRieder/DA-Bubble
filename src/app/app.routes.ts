@@ -8,5 +8,5 @@ export const routes: Routes = [
     component: MasterLoginSignUpComponent,
   },
 
-  { path: 'main/:id', component: MainPageComponent },
+  { path: 'main', component: MainPageComponent },
 ];
