@@ -15,8 +15,9 @@ main {
 
         @include display();
         position: absolute;
-        top: 36.2%;
-        left: 23%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
 
         margin: 0;
 
@@ -110,16 +111,17 @@ main {
         width: 865px;
         height: 275px;
 
-        top: 36.2%;
-        left: 23%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
     }
 
     100% {
         width: 324.5px;
         height: 102px;
 
-        top: 2%;
-        left: 2%;
+        top: 6%;
+        left: 10%;
     }
 }
 
