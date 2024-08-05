@@ -8,7 +8,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderComponent } from '../components/header/header.component';
 import { DirectMessageComponent } from '../components/direct-message/direct-message.component';
-import { UserdataService } from '../services/userdata.service';
 
 @Component({
   selector: 'app-main-page',
@@ -28,8 +27,5 @@ import { UserdataService } from '../services/userdata.service';
 })
 export class MainPageComponent {
   showFiller = false;
-  constructor(
-    private router: Router,
-    public userdataService: UserdataService
-  ) {}
+  constructor(private router: Router) {}
 }
