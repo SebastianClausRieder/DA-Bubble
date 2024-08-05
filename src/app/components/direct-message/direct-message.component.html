@@ -10,22 +10,12 @@
   <div class="dropdown-content">
     <table class="user-table">
       <tbody>
+        @for(user of this.userdataService.allUsers; track user) {
         <tr>
-          <td>
-            <img src="./assets/img/profile/man1.svg" alt="">
-          </td>
-          <td>
-            Hanbit Chang (DU)
-          </td>
+          <td><img src="./assets/img/profile/man1.svg" alt=""></td>
+          <td>{{user.name}}</td>
         </tr>
-        <tr>
-          <td>
-            <img src="./assets/img/profile/man2.svg" alt="">
-          </td>
-          <td>
-            Hallo Chang
-          </td>
-        </tr>
+        }
       </tbody>
     </table>
   </div>
