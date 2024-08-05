@@ -6,11 +6,17 @@
 
     @include display();
 
-    form {
+    form,
+    section {
         width: 100%;
         height: 100%;
 
-        @include display($fd: column, $gap: 15px);
+        @include display($fd: column, $gap: 25px);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        transition: all 0.7s ease-in-out;
 
         h1 {
             color: var(--blue);
@@ -19,15 +25,14 @@
         p {
             width: 450px;
 
-            font-size: 18px;
+            font-size: 17px;
             color: var(--black);
             text-align: center;
 
             margin: 0;
         }
 
-        .input-contain,
-        .google-contain {
+        .input-contain {
             width: 400px;
             min-height: 45px;
             max-height: 45px;
@@ -39,6 +44,7 @@
             border-radius: var(--borderRadius);
 
             padding: 0 25px;
+            margin-bottom: 10px;
 
             .img-contain {
                 width: 45px;
@@ -69,8 +75,6 @@
                 color: var(--black);
 
                 outline: none;
-
-                // cursor: url('./../../../assets/img/cursor/text.png'), auto;
             }
 
             .input-pw {
@@ -104,39 +108,92 @@
 
             input:focus+label,
             input:not(:placeholder-shown)+label {
-                top: -10px;
+                top: -15px;
                 left: 15px;
                 font-size: 19px;
                 color: var(--black);
             }
 
+            .request-contain {
+                width: calc(100% - 50px);
+                height: 25px;
+
+                @include display($jc: flex-start);
+                position: absolute;
+                top: 47px;
+                left: 0px;
+
+                background-color: transparent;
+
+                padding: 0 25px;
+                z-index: 9;
+
+                .request-area {
+                    font-size: 18px;
+                    color: var(--red);
+                }
+            }
+        }
+
+        .checkbox-contain {
+            width: 100%;
+            height: fit-content;
+
+            @include display($gap: 5px);
+
+            margin-top: 15px;
+
             span {
                 font-size: var(--fontSize);
                 color: var(--black);
             }
-        }
 
-        a {
-            font-size: var(--fontSize);
-            color: var(--turquoise);
-            text-decoration: none;
-        }
+            a {
+                font-size: var(--fontSize);
+                color: var(--blue);
+                text-decoration: none;
 
-        .or-line {
-            width: 95%;
-            height: fit-content;
-
-            @include display($jc: space-around);
-
-            margin-bottom: 15px;
-
-            .line {
-                width: 40%;
-                border: 1px solid var(--lighterBG);
+                &:hover {
+                    color: var(--turquoise);
+                    text-decoration: underline;
+                }
             }
 
-            h4 {
-                color: var(--black);
+            .checkbox {
+                width: 20px;
+                height: 20px;
+
+                @include display();
+
+                border: 2px solid var(--blueBG);
+                border-radius: 5px;
+                margin-right: 10px;
+
+                cursor: pointer;
+
+                &:hover {
+                    border: 2px solid var(--gold);
+                }
+
+                .check {
+                    width: 15px;
+                }
+            }
+
+            .redBorder {
+                border: 2px solid var(--red);
+
+                &:hover {
+                    border: 2px solid var(--red);
+                }
+            }
+
+            .greenBorder {
+                border: 2px solid var(--green);
+
+                &:hover {
+                    border: 2px solid var(--green);
+                }
             }
         }
 
@@ -163,7 +220,7 @@
                 color: var(--white);
 
                 border-color: var(--blueBG);
-                color: #fff;
+                color: var(--white);
                 box-shadow: 0 0 40px 40px var(--blueBG) inset, 0 0 0 0 var(--blueBG);
                 transition: all 0.3s ease-in-out;
 
@@ -172,6 +229,19 @@
                     background-color: transparent;
                     box-shadow: 0 0 10px 0 var(--blueBG) inset, 0 0 10px 4px var(--blueBG);
                     color: var(--blueBG);
+                }
+            }
+
+            .unvalid {
+                background-color: var(--gray50);
+                box-shadow: none;
+
+                cursor: not-allowed;
+
+                &:hover {
+                    background-color: var(--gray50); // Beibehalten der grauen Hintergrundfarbe
+                    box-shadow: none; // Kein Schatten
+                    color: var(--white); // Textfarbe bleibt weiß
                 }
             }
         }
@@ -183,6 +253,206 @@
 
     &.switch-opacity-off {
         animation: opacityOff 1.5s;
+    }
+
+    form {
+        transform: translateX(0);
+        opacity: 1;
+
+        &.switch-display-off {
+            transform: translateX(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    section {
+        @include display($fd: column, $gap: 20px);
+
+        transform: translateX(100%);
+        opacity: 0;
+
+        &.switch-display-on {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        figure {
+            width: 90%;
+            height: fit-content;
+
+            @include display($fd: column);
+
+            margin: 0;
+
+            .my-avatar-contain {
+                width: 175px;
+                height: 175px;
+
+                @include display();
+
+                border-radius: 50%;
+
+                overflow: hidden;
+
+                .my-avatar {
+                    width: 100%;
+                }
+            }
+
+            h3 {
+                height: 43px;
+
+                text-align: center;
+                
+                margin-bottom: 0;
+            }
+        }
+
+        .avatar-contain {
+            width: fit-content;
+            height: fit-content;
+
+            @include display($gap: 10px);
+
+            .avatar-list {
+                width: fit-content;
+                height: fit-content;
+
+                @include display();
+
+                border: solid 3px transparent;
+                border-radius: 50%;
+
+                overflow: hidden;
+                cursor: pointer;
+
+                &:hover {
+                    border: 3px solid var(--lighterBG);
+                    border-radius: 50%;
+                }
+
+                .avatar {
+                    width: 60px;
+                }
+            }
+        }
+
+        .btn-right {
+            width: 160px;
+            height: 45px;
+
+            border-radius: var(--borderRadius);
+
+            color: var(--blueBG);
+            font-size: var(--fontSize);
+
+            position: relative;
+
+            background-color: transparent;
+            border: 2px solid var(--blueBG);
+
+            margin-left: 20px;
+
+            overflow: hidden;
+            transition: 0.2s transform ease-in-out;
+            will-change: transform;
+            z-index: 0;
+
+            &::after {
+                width: 100%;
+                height: 100%;
+
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                background-color: var(--blueBG);
+                border-radius: var(--borderRadius);
+
+                content: '';
+
+                transform: translate(-100%, 0) rotate(10deg);
+                transform-origin: top left;
+                transition: 0.3s transform ease-out;
+                will-change: transform;
+                z-index: -1;
+            }
+
+            &:hover::after {
+                transform: translate(0, 0);
+            }
+
+            &:hover {
+                border: 2px solid transparent;
+
+                color: var(--white);
+
+                transform: scale(1.05);
+                will-change: transform;
+            }
+        }
+
+        app-back-arrow {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+        }
+    }
+}
+
+// Strong Password Check
+
+.input-contain {
+    .strengthMeter {
+        position: absolute;
+        bottom: 0px;
+        width: 85%;
+        height: 1px;
+        background: transparent;
+
+        margin-left: 50px;
+        margin-right: 50px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 100%;
+            transition: 0.5s;
+            background: var(--scaleRed);
+        }
+    }
+
+    &.weak {
+        .strengthMeter {
+            &::before {
+                width: 10%;
+                background: var(--scaleRed);
+                filter: drop-shadow(0 -1px 1px var(--scaleRed)) drop-shadow(0 0 5px var(--scaleRed)) drop-shadow(0 0 20px var(--scaleRed))
+            }
+        }
+    }
+
+    &.moderate {
+        .strengthMeter {
+            &::before {
+                width: 70%;
+                background: var(--scaleYellow);
+                filter: drop-shadow(0 -1px 1px var(--scaleYellow)) drop-shadow(0 0 5px var(--scaleYellow)) drop-shadow(0 0 20px var(--scaleYellow));
+            }
+        }
+    }
+
+    &.strong {
+        .strengthMeter {
+            &::before {
+                width: 100%;
+                background: var(--scaleGreen);
+                filter: drop-shadow(0 -1px 1px var(--scaleGreen)) drop-shadow(0 0 5px var(--scaleGreen)) drop-shadow(0 0 20px var(--scaleGreen));
+            }
+        }
     }
 }
 

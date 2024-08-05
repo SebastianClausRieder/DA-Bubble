@@ -1,99 +1,154 @@
 @import './../../mixin.scss';
 
-.main-contain {
-    width: 95%;
-    height: 98%;
+main {
+    width: 100%;
+    height: 100%;
 
     @include display();
 
     position: relative;
 
-    figure {
-        width: 350px;
-        height: 75px;
-
-        @include display();
+    app-start-logo {
         position: absolute;
-        top: 25px;
-        left: 25px;
+        inset: 0;
 
+        pointer-events: none;
+        z-index: 9;
     }
 
-    .sign-area {
-        width: 1120px;
+    section {
+        width: 1260px;
         max-width: 95%;
-        height: 620px;
+        height: 760px;
         max-height: 98%;
 
         @include display();
+        position: relative;
 
         background-color: var(--white);
         border-radius: var(--borderRadius);
-        overflow: hidden; // Damit der swipe Effekt gut aussieht
+        overflow: hidden;
 
-        position: relative;
-
-        .switch-contain,
-        app-toggle-contain {
-            width: 50%;
+        .sign-area,
+        .pw-area {
+            width: 100%;
             height: 100%;
 
             @include display();
-
-            position: absolute;
-            top: 0;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        // .switch-contain {
-        //     left: 0;
-
-        //     &.slide-right {
-        //         transform: translateX(100%);
-        //     }
-        // }
-
-        .form-component {
-            width: 50%;
-            height: 100%;
-
             position: absolute;
             top: 0;
             left: 0;
 
-            transition: all 0.6s ease-in-out;
+            transition: all 0.7s ease-in-out;
+
+            .switch-contain,
+            app-toggle-contain {
+                width: 50%;
+                height: 100%;
+
+                @include display();
+
+                position: absolute;
+                top: 0;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            .form-component {
+                width: 50%;
+                height: 100%;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                transition: all 0.6s ease-in-out;
+            }
+
+            app-sign-in {
+                opacity: 1;
+                z-index: 2;
+            }
+
+            .active-in {
+                opacity: 0;
+                z-index: 1;
+                transform: translateX(100%);
+                animation: opacityOff 0.6s;
+            }
+
+            app-sign-up {
+                opacity: 0;
+                z-index: 1;
+            }
+
+            .active-up {
+                opacity: 1;
+                z-index: 2;
+                transform: translateX(100%);
+                animation: opacityOn 0.6s;
+            }
+
+            app-toggle-contain {
+                right: 0;
+                z-index: 3;
+
+                &.slide-left {
+                    transform: translateX(-100%);
+                }
+            }
         }
 
-        app-sign-in {
+        .sign-area {
             opacity: 1;
-            z-index: 2;
+
+            &.switch-area-off {
+                opacity: 0;
+                pointer-events: none;
+            }
         }
 
-        .active-in {
+        .pw-area {
+            transform: translateY(-100%);
             opacity: 0;
-            z-index: 1;
-            transform: translateX(100%);
-            animation: opacityOff 0.6s;
+
+            &.switch-area-on {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            app-forgot-password {
+                width: 100%;
+                height: 100%;
+            }
         }
+    }
 
-        app-sign-up {
-            opacity: 0;
-            z-index: 1;
-        }
+    footer {
+        width: 450px;
+        height: 50px;
 
-        .active-up {
-            opacity: 1;
-            z-index: 2;
-            transform: translateX(100%);
-            animation: opacityOn 0.6s;
-        }
+        @include display($jc: space-between);
+        position: absolute;
+        bottom: 25px;
 
-        app-toggle-contain {
-            right: 0;
-            z-index: 3;
+        a {
+            width: fit-content;
+            height: fit-content;
 
-            &.slide-left {
-                transform: translateX(-100%);
+            font-size: var(--fontSize);
+            color: var(--blue);
+            text-decoration: none;
+
+            padding: 10px 25px;
+
+            border: 1px solid transparent;
+            border-radius: var(--borderRadius);
+
+            &:hover {
+                color: var(--turquoise);
+                text-decoration: underline;
+
+                border: 1px solid var(--turquoise);
             }
         }
     }

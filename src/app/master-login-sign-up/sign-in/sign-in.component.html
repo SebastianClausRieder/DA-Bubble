@@ -1,49 +1,71 @@
 <div class="main-contain" [ngClass]="{ 'switch-opacity-on': !signUp, 'switch-opacity-off': signUp }">
-    <form action="login">
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+
         <h1>{{ globalJSData.isGerman ? 'Anmeldung' : 'Sign In' }}</h1>
+
         <div class="distance">
             <p>
                 @if (globalJSData.isGerman) {
-                    Wir empfehlen, deine berufliche E-Mail-Adresse zu nutzen, damit du keine wichtigen Informationen
-                    verpasst.
+                Wir empfehlen, deine berufliche E-Mail-Adresse zu nutzen, damit du keine wichtigen Informationen
+                verpasst.
                 } @else {
-                    We recommend using your work email address so you don't miss any important information.
+                We recommend using your work email address so you don't miss any important information.
                 }
             </p>
         </div>
+
         <div class="input-contain">
-            <input type="mail" placeholder=" " id="email" autocomplete="email" required>
-            <label class="font-anta" for="email">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
+            <input #mail="ngModel" [(ngModel)]="loginData.mail" type="email" placeholder=" " name="mail"
+                autocomplete="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+            <label for="email">{{ globalJSData.isGerman ? 'E-Mail Adresse' : 'Mail address'
                 }}</label>
             <div class="img-contain">
-                <img class="input-icon" src="assets/img/icons/message.png" alt="">
+                <img class="input-icon" src="assets/img/icons/mail.png" alt="">
             </div>
+            @if (!mail.valid && mail.touched) {
+            <div class="request-contain">
+                <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib deine E-Mail ein' :
+                    'Please enter your mail' }}</span>
+            </div>
+            }
         </div>
+
         <div class="input-contain">
-            <input class="input-pw" type="password" placeholder=" " id="password" required>
-            <label class="font-anta" for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password' }}</label>
+            <input #password="ngModel" [(ngModel)]="loginData.password" class="input-pw" type="{{ passwordFieldType }}"
+                name="password" placeholder=" " minlength="4" required>
+            <label for="password">{{ globalJSData.isGerman ? 'Passwort' : 'Password' }}</label>
             <div class="img-contain pw">
-                <img class="input-icon eye" src="assets/img/icons/eye.png" alt="">
+                <img class="input-icon eye" src="{{ passwordFieldEye }}" alt="" (click)="togglePasswordFieldType()"
+                    style="cursor: pointer;">
                 <img class="input-icon" src="assets/img/icons/lock.png" alt="">
             </div>
+            @if (!password.valid && password.touched) {
+            <div class="request-contain">
+                <span class="request-area" id="request-name">{{ globalJSData.isGerman ? 'Bitte gib dein Passwort ein' :
+                    'Please enter your password' }}</span>
+            </div>
+            }
         </div>
+
         <div class="distance">
-            <a href="#">
+            <a href="#" (click)="toggleForgotPassword()">
                 @if (globalJSData.isGerman) {
-                    Passwort vergessen?
+                Passwort vergessen?
                 } @else {
-                    Forgot Password?
+                Forgot Password?
                 }
             </a>
         </div>
+
         <div class="or-line">
             <div class="line"></div>
             <h4>{{ globalJSData.isGerman ? 'oder' : 'or' }}</h4>
             <div class="line"></div>
         </div>
+
         <div class="google-contain">
-            <img src="" alt="">
             <span>
+                <img class="google-logo" src="assets/img/icons/google.png" alt="">
                 @if (globalJSData.isGerman) {
                 Anmeldung mit Google
                 } @else {
@@ -51,9 +73,12 @@
                 }
             </span>
         </div>
+
         <div class="btn-contain">
-            <button class="btn-left">{{ globalJSData.isGerman ? 'Anmelden' : 'Sign In' }}</button>
+            <button class="btn-left" type="submit" value="Submit" [ngClass]="{'unvalid': !loginForm.valid}">{{
+                globalJSData.isGerman ? 'Anmelden' : 'Sign In' }}</button>
             <button class="btn-right">{{ globalJSData.isGerman ? 'Gäste-Login' : 'Guest Login' }}</button>
         </div>
+
     </form>
 </div>
