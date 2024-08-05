@@ -1,11 +1,12 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { UserdataService } from '../../services/userdata.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-direct-message',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './direct-message.component.html',
   styleUrl: './direct-message.component.scss',
 })

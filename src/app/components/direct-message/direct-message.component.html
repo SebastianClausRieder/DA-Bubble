@@ -11,7 +11,7 @@
     <table class="user-table">
       <tbody>
         @for(user of this.userdataService.allUsers; track user) {
-        <tr>
+        <tr [routerLink]="['/user/' + user.id]">
           <td><img src="./assets/img/profile/man1.svg" alt=""></td>
           <td>{{user.name}}</td>
         </tr>

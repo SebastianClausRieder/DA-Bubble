@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { MasterLoginSignUpComponent } from './master-login-sign-up/master-login-sign-up.component';
+import { UserChatComponent } from './components/user-chat/user-chat.component';
 
 export const routes: Routes = [
   {
@@ -9,4 +10,5 @@ export const routes: Routes = [
   },
 
   { path: 'main', component: MainPageComponent },
+  { path: 'user/id', component: UserChatComponent },
 ];
