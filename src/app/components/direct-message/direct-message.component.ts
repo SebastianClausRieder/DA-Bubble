@@ -1,7 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { UserdataService } from '../../services/userdata.service';
-import { RouterModule } from '@angular/router';
+import { ChatsService } from '../../services/chats.service';
 
 @Component({
   selector: 'app-direct-message',
@@ -11,14 +12,14 @@ import { RouterModule } from '@angular/router';
   styleUrl: './direct-message.component.scss',
 })
 export class DirectMessageComponent implements OnInit {
-  createChat(user: any) {
-    throw new Error('Method not implemented.');
-  }
   filtering: boolean = true;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    public userdataService: UserdataService
+    public userdataService: UserdataService,
+    public chatsService: ChatsService
   ) {}
+
   async ngOnInit(): Promise<void> {
     this.toogleDirectMessage();
     await this.userdataService.getAllUsers();
@@ -35,6 +36,13 @@ export class DirectMessageComponent implements OnInit {
           dropdownIcon.classList.remove('rotate-down');
         }
       });
+    }
+  }
+
+  async createChat(user: any) {
+    if (await this.chatsService.isExistingChat(user.uid)) {
+    } else {
+      this.chatsService.createChat(user);
     }
   }
 }

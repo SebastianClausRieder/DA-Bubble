@@ -1,4 +1,13 @@
 <div class="container">
   <p>user-chat works!</p>
   <h1>HELLO is this working???</h1>
+  <div id="content" class="content">
+    @for(message of this.messages; track message) {
+    <div>{{message}}</div>
+    }
+  </div>
+  <form id="form" (ngSubmit)="onSubmit(messageForm)" #messageForm="ngForm">
+    <input type="text" placeholder="Enter your message" [(ngModel)]="sentMessage" [ngModelOptions]="{standalone: true}">
+    <button type=" submit">Send</button>
+  </form>
 </div>
