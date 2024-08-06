@@ -7,7 +7,8 @@
     }
   </div>
   <form id="form" (ngSubmit)="onSubmit(messageForm)" #messageForm="ngForm">
-    <input type="text" placeholder="Enter your message" [(ngModel)]="sentMessage" [ngModelOptions]="{standalone: true}">
+    <input id="message-input" type="text" placeholder="Enter your message" [(ngModel)]="sentMessage"
+      [ngModelOptions]="{standalone: true}">
     <button type=" submit">Send</button>
   </form>
 </div>

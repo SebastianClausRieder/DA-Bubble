@@ -23,10 +23,14 @@ export class UserChatComponent implements OnInit {
 
   async onSubmit(messageForm: NgForm) {
     if (messageForm.valid) {
+      let messageInput = <HTMLInputElement>(
+        document.getElementById('message-input')
+      );
       console.log('this is message', messageForm.value);
       console.log('message', this.sentMessage);
       this.messages.push(this.sentMessage);
       console.log('message', this.messages);
+      messageInput.value = '';
       messageForm.resetForm();
     }
   }
