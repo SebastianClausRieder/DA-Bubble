@@ -11,6 +11,9 @@ import { RouterModule } from '@angular/router';
   styleUrl: './direct-message.component.scss',
 })
 export class DirectMessageComponent implements OnInit {
+  createChat(user: any) {
+    throw new Error('Method not implemented.');
+  }
   filtering: boolean = true;
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,

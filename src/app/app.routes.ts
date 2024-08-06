@@ -11,10 +11,11 @@ export const routes: Routes = [
   {
     path: 'main',
     component: MainPageComponent,
-  },
-  {
-    path: 'users/:id',
-    component: UserChatComponent,
-    outlet: 'mainroute',
+    children: [
+      {
+        path: 'users/:id',
+        component: UserChatComponent,
+      },
+    ],
   },
 ];
