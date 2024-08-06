@@ -8,7 +8,13 @@ export const routes: Routes = [
     path: '',
     component: MasterLoginSignUpComponent,
   },
-
-  { path: 'main', component: MainPageComponent },
-  { path: 'user/id', component: UserChatComponent },
+  {
+    path: 'main',
+    component: MainPageComponent,
+  },
+  {
+    path: 'users/:id',
+    component: UserChatComponent,
+    outlet: 'mainroute',
+  },
 ];
