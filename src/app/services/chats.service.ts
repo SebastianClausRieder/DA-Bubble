@@ -118,6 +118,13 @@ export class ChatsService {
           data.id = doc.id;
           console.log('received Changes from DB', data);
           this.allMessages.push(data);
+          this.allMessages.sort((a, b) => {
+            if (a.sentAt.seconds === b.sentAt.seconds) {
+              return a.sentAt.nanoseconds - b.sentAt.nanoseconds;
+            } else {
+              return a.sentAt.seconds - b.sentAt.seconds;
+            }
+          });
         });
       }
     );
