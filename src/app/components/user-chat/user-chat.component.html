@@ -2,8 +2,8 @@
   <p>user-chat works!</p>
   <h1>HELLO is this working???</h1>
   <div id="content" class="content">
-    @for(message of this.messages; track message) {
-    <div>{{message}}</div>
+    @for(message of this.chatService.allMessages; track message) {
+    <div>{{message.text}}</div>
     }
   </div>
   <form id="form" (ngSubmit)="onSubmit(messageForm)" #messageForm="ngForm">

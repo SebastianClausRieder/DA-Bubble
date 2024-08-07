@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ChatsService } from '../../services/chats.service';
 
 @Component({
   selector: 'app-user-chat',
@@ -10,14 +11,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './user-chat.component.scss',
 })
 export class UserChatComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
-  userId: string | null = '';
+  constructor(
+    private route: ActivatedRoute,
+    public chatService: ChatsService
+  ) {}
+  otherUserId: string = '';
   messages: any[] = [];
   sentMessage: any;
   ngOnInit(): void {
+    this.chatService.getAllChats();
     this.route.paramMap.subscribe((paramMap) => {
-      this.userId = paramMap.get('id');
-      console.log(this.userId);
+      const id = paramMap.get('id');
+      if (id) {
+        this.otherUserId = id;
+      } else {
+        this.otherUserId = '';
+      }
+      this.chatService.getCurrentChat(this.otherUserId);
     });
   }
 
@@ -30,6 +40,7 @@ export class UserChatComponent implements OnInit {
       console.log('message', this.sentMessage);
       this.messages.push(this.sentMessage);
       console.log('message', this.messages);
+      this.chatService.sendMessage(this.sentMessage);
       messageInput.value = '';
       messageForm.resetForm();
     }
