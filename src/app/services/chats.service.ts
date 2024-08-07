@@ -73,7 +73,7 @@ export class ChatsService {
         chat.usersIds[0] === this.currentUser.uid &&
         chat.usersIds[1] === otherUserID
     );
-    console.log('this is chat', chat);
+    console.log('this is current chat', chat);
     this.currentChat = chat;
     this.getMessages(this.currentChat);
   }
@@ -82,11 +82,13 @@ export class ChatsService {
       collection(this.firestore, 'chats'),
       where('usersIds', 'array-contains', this.currentUser.uid)
     );
-    const querySnapshot = await getDocs(ref);
-    querySnapshot.forEach((doc: any) => {
-      this.allChats.push(doc.data());
+    const querySnapshot = onSnapshot(ref, (querySnapshot) => {
+      this.allChats = [];
+      querySnapshot.forEach((doc: any) => {
+        this.allChats.push(doc.data());
+      });
+      console.log('get all the chats', this.allChats);
     });
-    console.log('get All the chats', this.allChats);
   }
 
   sendMessage(sentMessage: string) {
@@ -116,7 +118,7 @@ export class ChatsService {
         querySnapshot.forEach((doc: any) => {
           let data = doc.data();
           data.id = doc.id;
-          console.log('received Changes from DB', data);
+          console.log('received messages from database', data);
           this.allMessages.push(data);
           this.allMessages.sort((a, b) => {
             if (a.sentAt.seconds === b.sentAt.seconds) {

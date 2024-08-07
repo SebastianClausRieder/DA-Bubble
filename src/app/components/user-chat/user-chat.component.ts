@@ -19,7 +19,6 @@ export class UserChatComponent implements OnInit {
   messages: any[] = [];
   sentMessage: any;
   ngOnInit(): void {
-    this.chatService.getAllChats();
     this.route.paramMap.subscribe((paramMap) => {
       const id = paramMap.get('id');
       if (id) {
@@ -29,6 +28,8 @@ export class UserChatComponent implements OnInit {
       }
       this.chatService.getCurrentChat(this.otherUserId);
     });
+
+    // this.chatService.getMessages(this.chatService.currentChat);
   }
 
   async onSubmit(messageForm: NgForm) {
