@@ -35,7 +35,5 @@ export class MainPageComponent implements OnInit {
     public userdataService: UserdataService,
     public chatsService: ChatsService
   ) {}
-  ngOnInit(): void {
-    this.chatsService.getAllChats();
-  }
+  ngOnInit(): void {}
 }

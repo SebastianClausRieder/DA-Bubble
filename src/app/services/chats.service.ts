@@ -66,6 +66,7 @@ export class ChatsService {
   }
 
   async getCurrentChat(otherUserID: string) {
+    this.getAllChats();
     console.log('this is all chats', this.allChats);
     const chat = this.allChats.find(
       (chat: { usersIds: string | any[] }) =>
