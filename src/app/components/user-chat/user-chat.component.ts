@@ -28,8 +28,6 @@ export class UserChatComponent implements OnInit {
         this.otherUserId = '';
       }
     });
-
-    // this.chatService.getMessages(this.chatService.currentChat);
   }
 
   async onSubmit(messageForm: NgForm) {
