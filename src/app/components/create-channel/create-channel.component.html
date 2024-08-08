@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="content">
+    <h1>Create a Channel</h1>
+    <section class="input-section">
+      <form id="channel-form" (ngSubmit)="createChannel(channelForm)" #channelForm="ngForm">
+        <input name="channel-name" type="text" placeholer="Enter Channel Name" [(ngModel)]="newChannel.name">
+        <input name="channel-description" ctype="text" placeholder="Enter Channel Description"
+          [(ngModel)]="newChannel.description">
+
+        <label for="users">Choose users</label>
+        <select name="users" id="users" multiple [(ngModel)]="newChannel.members">
+          @for(user of allUsers; track user) {
+          <option value="{{user.id}}">{{user.name}}</option>
+          }
+        </select>
+        <button type="submit">Create Channel</button>
+      </form>
+    </section>
+  </div>
+</div>

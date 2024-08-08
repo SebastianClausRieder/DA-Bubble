@@ -8,6 +8,12 @@ import { getDocs, onSnapshot, setDoc } from 'firebase/firestore';
 export class UserdataService {
   firestore: Firestore = inject(Firestore);
   allUsers: any = [];
+
+  currentUser: any = {
+    name: 'Hansam Chang',
+    uid: 'hansamid123',
+  };
+
   constructor() {}
 
   async saveUser() {

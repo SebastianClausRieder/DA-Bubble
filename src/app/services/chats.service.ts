@@ -19,21 +19,19 @@ import { Chat, Message } from './../models/chat';
 import { ProfileUser } from './../models/user-profile';
 import { NgForm } from '@angular/forms';
 import { onSnapshot } from 'firebase/firestore';
+import { UserdataService } from './userdata.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatsService {
   firestore: Firestore = inject(Firestore);
-  currentUser: any = {
-    name: 'Hansam Chang',
-    uid: 'hansamid123',
-  };
+  currentUser = this.userdataService.currentUser;
   currentChatId?: string;
   allChats: any = [];
   currentChat: any = {};
 
-  constructor() {}
+  constructor(public userdataService: UserdataService) {}
 
   async createChat(otherUser: any) {
     let data = {
