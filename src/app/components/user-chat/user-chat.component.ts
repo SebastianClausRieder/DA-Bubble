@@ -23,10 +23,10 @@ export class UserChatComponent implements OnInit {
       const id = paramMap.get('id');
       if (id) {
         this.otherUserId = id;
+        this.chatService.getCurrentChat(this.otherUserId);
       } else {
         this.otherUserId = '';
       }
-      this.chatService.getCurrentChat(this.otherUserId);
     });
 
     // this.chatService.getMessages(this.chatService.currentChat);

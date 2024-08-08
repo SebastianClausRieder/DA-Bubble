@@ -20,22 +20,26 @@ export class DirectMessageComponent implements OnInit {
     public chatsService: ChatsService
   ) {}
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit() {
     this.toogleDirectMessage();
-    await this.userdataService.getAllUsers();
+    this.userdataService.getAllUsers();
   }
 
   toogleDirectMessage() {
     if (isPlatformBrowser(this.platformId)) {
       const dropdownIcon = document.getElementById('dropdown-icon');
-      document.addEventListener('click', (event) => {
-        if (dropdownIcon && this.filtering) {
-          dropdownIcon.classList.add('rotate-down');
-        }
-        if (dropdownIcon && !this.filtering) {
-          dropdownIcon.classList.remove('rotate-down');
-        }
-      });
+      const dropdownBtn = document.getElementById('dropdown-btn');
+      if (dropdownBtn) {
+        console.log(this.filtering);
+        dropdownBtn.addEventListener('click', (event) => {
+          if (dropdownIcon && this.filtering) {
+            dropdownIcon.classList.add('rotate-down');
+          }
+          if (dropdownIcon && !this.filtering) {
+            dropdownIcon.classList.remove('rotate-down');
+          }
+        });
+      }
     }
   }
 

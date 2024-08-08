@@ -54,7 +54,6 @@ export class ChatsService {
   async isExistingChat(otherUserID: string): Promise<boolean> {
     const ref = query(collection(this.firestore, 'chats'));
     const querySnapshot = await getDocs(ref);
-
     let found = false;
     querySnapshot.forEach((doc: any) => {
       if (doc.data().usersIds.includes(otherUserID)) {
@@ -66,7 +65,7 @@ export class ChatsService {
   }
 
   async getCurrentChat(otherUserID: string) {
-    this.getAllChats();
+    await this.getAllChats();
     console.log('this is all chats', this.allChats);
     const chat = this.allChats.find(
       (chat: { usersIds: string | any[] }) =>
@@ -83,13 +82,21 @@ export class ChatsService {
       collection(this.firestore, 'chats'),
       where('usersIds', 'array-contains', this.currentUser.uid)
     );
-    const querySnapshot = onSnapshot(ref, (querySnapshot) => {
-      this.allChats = [];
-      querySnapshot.forEach((doc: any) => {
-        this.allChats.push(doc.data());
-      });
-      console.log('get all the chats', this.allChats);
+    const querySnapshot = await getDocs(ref);
+    this.allChats = [];
+    querySnapshot.forEach((doc: any) => {
+      this.allChats.push(doc.data());
     });
+
+    console.log('get all the chats', this.allChats);
+
+    // const querySnapshot = onSnapshot(ref, (querySnapshot) => {
+    //   this.allChats = [];
+    //   querySnapshot.forEach((doc: any) => {
+    //     this.allChats.push(doc.data());
+    //   });
+    //   console.log('get all the chats', this.allChats);
+    // });
   }
 
   sendMessage(sentMessage: string) {
@@ -112,6 +119,7 @@ export class ChatsService {
   allMessages: any[] = [];
 
   getMessages(currentChat: any) {
+    console.log('this is current messages', currentChat);
     const ref = onSnapshot(
       collection(this.firestore, 'chats', currentChat.uid, 'messages'),
       (querySnapshot) => {
@@ -119,7 +127,6 @@ export class ChatsService {
         querySnapshot.forEach((doc: any) => {
           let data = doc.data();
           data.id = doc.id;
-          console.log('received messages from database', data);
           this.allMessages.push(data);
           this.allMessages.sort((a, b) => {
             if (a.sentAt.seconds === b.sentAt.seconds) {

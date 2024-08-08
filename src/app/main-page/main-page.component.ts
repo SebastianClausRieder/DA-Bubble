@@ -33,7 +33,7 @@ export class MainPageComponent implements OnInit {
   constructor(
     private router: Router,
     public userdataService: UserdataService,
-    public chatsService: ChatsService
+    public chatService: ChatsService
   ) {}
   ngOnInit(): void {}
 }

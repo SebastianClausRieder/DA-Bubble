@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { addDoc, collection, Firestore } from '@angular/fire/firestore';
-import { onSnapshot, setDoc } from 'firebase/firestore';
+import { getDocs, onSnapshot, setDoc } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -30,14 +30,14 @@ export class UserdataService {
   async getCurrentUser() {}
 
   async getAllUsers() {
-    onSnapshot(collection(this.firestore, 'usersData'), (querySnapshot) => {
-      this.allUsers = [];
-      querySnapshot.forEach((doc: any) => {
-        let data = doc.data();
-        data.id = doc.id;
-        console.log('received Changes from DB', data);
-        this.allUsers.push(data);
-      });
+    this.allUsers = [];
+    const ref = collection(this.firestore, 'usersData');
+    const querySnapshot = await getDocs(ref);
+    querySnapshot.forEach((doc: any) => {
+      let data = doc.data();
+      data.id = doc.id;
+      console.log('received Users from data', data);
+      this.allUsers.push(data);
     });
   }
 }
