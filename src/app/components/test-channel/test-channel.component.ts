@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ChannelService } from '../../services/channel.service';
 
 @Component({
   selector: 'app-test-channel',
@@ -7,8 +8,13 @@ import { Component } from '@angular/core';
   templateUrl: './test-channel.component.html',
   styleUrl: './test-channel.component.scss',
 })
-export class TestChannelComponent {
+export class TestChannelComponent implements OnInit {
+  constructor(public channelService: ChannelService) {}
+  ngOnInit(): void {}
   createChannel() {
-    throw new Error('Method not implemented.');
+    const createChannel = document.getElementById('create-channel');
+    if (createChannel) {
+      createChannel.classList.remove('hidden');
+    }
   }
 }

@@ -10,7 +10,7 @@
         <label for="users">Choose users</label>
         <select name="users" id="users" multiple [(ngModel)]="newChannel.members">
           @for(user of allUsers; track user) {
-          <option value="{{user.id}}">{{user.name}}</option>
+          <option value="{{[user.name,user.uid]}}">{{user.name}}</option>
           }
         </select>
         <button type="submit">Create Channel</button>

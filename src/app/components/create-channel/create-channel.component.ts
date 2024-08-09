@@ -29,6 +29,10 @@ export class CreateChannelComponent implements OnInit {
   createChannel(channelForm: NgForm) {
     if (channelForm.valid) {
       this.channelService.createNewChannel(this.newChannel);
+      const createChannel = document.getElementById('create-channel');
+      if (createChannel) {
+        createChannel.classList.add('hidden');
+      }
     }
   }
 }
