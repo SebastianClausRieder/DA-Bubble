@@ -10,7 +10,9 @@ import { ChannelService } from '../../services/channel.service';
 })
 export class TestChannelComponent implements OnInit {
   constructor(public channelService: ChannelService) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.channelService.getAllChannels();
+  }
   createChannel() {
     const createChannel = document.getElementById('create-channel');
     if (createChannel) {

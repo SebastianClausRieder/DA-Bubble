@@ -45,7 +45,7 @@ export class ChannelService {
     });
   }
 
-  async getAllChats() {
+  async getAllChannels() {
     const ref = query(
       collection(this.firestore, 'channels'),
       where('usersIds', 'array-contains', this.currentUser.uid)

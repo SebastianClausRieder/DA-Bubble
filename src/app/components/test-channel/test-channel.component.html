@@ -1,1 +1,4 @@
+@for(channel of channelService.allChannels; track channel) {
+<div>{{channel.name}}</div>
+}
 <div>channel <button (click)="createChannel()">add channel</button></div>
