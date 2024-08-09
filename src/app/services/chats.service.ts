@@ -44,9 +44,9 @@ export class ChatsService {
       ],
     };
     const ref = collection(this.firestore, 'chats');
-    const docRef = await addDoc(ref, data);
-    const uid = docRef.id;
-    await setDoc(docRef, { ...data, uid });
+    const querySnapshot = await addDoc(ref, data);
+    const uid = querySnapshot.id;
+    await setDoc(querySnapshot, { ...data, uid });
   }
 
   async isExistingChat(otherUserID: string): Promise<boolean> {

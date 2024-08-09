@@ -5,6 +5,7 @@ import {
   Firestore,
   getDocs,
   query,
+  setDoc,
   where,
 } from '@angular/fire/firestore';
 import { UserdataService } from './userdata.service';
@@ -40,9 +41,10 @@ export class ChannelService {
       data.usersIds.push(value[1]);
     });
     const ref = collection(this.firestore, 'channels');
-    const querySnapshot = await addDoc(ref, data).then(() => {
-      alert('Channel created');
-    });
+    const querySnapshot = await addDoc(ref, data);
+    const uid = querySnapshot.id;
+    await setDoc(querySnapshot, { ...data, uid });
+    alert('channel created');
   }
 
   async getAllChannels() {

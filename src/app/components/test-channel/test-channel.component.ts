@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ChannelService } from '../../services/channel.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-test-channel',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './test-channel.component.html',
   styleUrl: './test-channel.component.scss',
 })
