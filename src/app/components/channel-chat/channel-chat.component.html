@@ -1,1 +1,15 @@
-<p>channel-chat works!</p>
+@for(user of this.channelService.currentChannel.users; track user) {
+<div>{{user.displayName}}</div>
+}
+
+<div class="content">
+  @for(message of this.channelService.allMessages; track message) {
+  <div>{{message.text}}</div>
+  }
+</div>
+
+<form id="channel-form" (ngSubmit)="onSubmit(messageForm)" #messageForm="ngForm">
+  <input id="message-input" type="text" placeholder="Enter your message" [(ngModel)]="sentMessage"
+    [ngModelOptions]="{standalone: true}">
+  <button type="submit">Send</button>
+</form>

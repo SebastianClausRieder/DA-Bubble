@@ -4,8 +4,10 @@ import {
   collection,
   Firestore,
   getDocs,
+  onSnapshot,
   query,
   setDoc,
+  Timestamp,
   where,
 } from '@angular/fire/firestore';
 import { UserdataService } from './userdata.service';
@@ -18,6 +20,7 @@ export class ChannelService {
   currentUser = this.userdataService.currentUser;
   allUsers = this.userdataService.allUsers;
   allChannels: any = [];
+  currentChannel: any = {};
   constructor(public userdataService: UserdataService) {}
 
   async createNewChannel(newChannel: any) {
@@ -35,8 +38,6 @@ export class ChannelService {
 
     newChannel.members.forEach((member: any) => {
       let value = member.split(',');
-      console.log('value1', value[0]);
-      console.log('value2', value[1]);
       data.users.push({ displayName: value[0] });
       data.usersIds.push(value[1]);
     });
@@ -57,7 +58,53 @@ export class ChannelService {
     querySnapshot.forEach((doc: any) => {
       this.allChannels.push(doc.data());
     });
+  }
 
-    console.log('get all the chats', this.allChannels);
+  async getCurrentChannel(channelId: string) {
+    await this.getAllChannels();
+    const channel = this.allChannels.find(
+      (channel: { uid: string | any[] }) => channel.uid == channelId
+    );
+    this.currentChannel = channel;
+    this.getMessages(this.currentChannel);
+  }
+
+  async sendMessage(sentMessage: string) {
+    const ref = collection(
+      this.firestore,
+      'channels',
+      this.currentChannel.uid,
+      'messages'
+    );
+
+    const querySnapshot = await addDoc(ref, {
+      text: sentMessage,
+      sentBy: this.currentUser.uid,
+      sentByName: this.currentUser.name,
+      sentAt: Timestamp.fromDate(new Date()),
+    });
+  }
+
+  allMessages: any[] = [];
+  getMessages(currentChannel: any) {
+    console.log('this is current messages', currentChannel);
+    const ref = onSnapshot(
+      collection(this.firestore, 'channels', currentChannel.uid, 'messages'),
+      (querySnapshot) => {
+        this.allMessages = [];
+        querySnapshot.forEach((doc: any) => {
+          let data = doc.data();
+          data.id = doc.id;
+          this.allMessages.push(data);
+          this.allMessages.sort((a, b) => {
+            if (a.sentAt.seconds === b.sentAt.seconds) {
+              return a.sentAt.nanoseconds - b.sentAt.nanoseconds;
+            } else {
+              return a.sentAt.seconds - b.sentAt.seconds;
+            }
+          });
+        });
+      }
+    );
   }
 }
